@@ -2,6 +2,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: var(--tg-theme-text-color);
+    background: var(--tg-theme-bg-color);
 }
 
 .center {
@@ -9,7 +11,7 @@ body {
 }
 
 .container {
-    padding: 0 1rem;
+    padding: 0 2rem;
 }
 
 .products {
@@ -19,7 +21,7 @@ body {
 }
 
 h4 {
-    margin: 0 0 1rem;
+    margin: 0 0 .5rem;
 }
 
 .product {
@@ -29,7 +31,7 @@ h4 {
     justify-content: center;
     padding: 1rem;
     width: 130px;
-    /*height: 150px;*/
+    height: 165px;
     box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px, rgba(0, 0, 0, 0.24) 0 1px 2px;
     border-radius: 8px;
     background-color: white;
@@ -38,7 +40,7 @@ h4 {
 .image {
     width: 100%;
     height: 114px;
-    margin-bottom: .25rem;
+    margin-bottom: .5rem;
 }
 
 img {
@@ -65,7 +67,8 @@ button {
     color: white;
     border-radius: 8px;
     cursor: pointer;
-    transition: .5s;
+    transition: .3s;
+    width: 100%;
 }
 button:hover {
     background-color: #308080;
