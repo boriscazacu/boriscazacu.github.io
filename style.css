@@ -32,6 +32,7 @@ h4 {
     /*height: 150px;*/
     box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px, rgba(0, 0, 0, 0.24) 0 1px 2px;
     border-radius: 8px;
+    background-color: white;
 }
 
 .image {
