@@ -2,7 +2,12 @@ import { tg, initTelegram } from "./telegram.js";
 import { sendData } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    initTelegram();
+    // initTelegram();
+
+    setTimeout(() => {
+        console.log('Timeout')
+        document.getElementById('app-loader-index').classList.remove('active')
+    }, 3100)
 
     const button = document.getElementById("main-button");
     button.addEventListener("click", () => {
