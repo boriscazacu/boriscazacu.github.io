@@ -1,0 +1,17 @@
+body {
+    font-family: system-ui, sans-serif;
+    background-color: var(--tg-theme-bg-color, #ffffff);
+    color: var(--tg-theme-text-color, #000000);
+    margin: 0;
+    padding: 16px;
+}
+
+button {
+    background-color: var(--tg-theme-button-color, #2cab37);
+    color: var(--tg-theme-button-text-color, #fff);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
