@@ -7,7 +7,7 @@ body {
 }
 
 button {
-    background-color: var(--tg-theme-button-color, #2cab37);
+    background-color: var(--tg-theme-button-color, #216559);
     color: var(--tg-theme-button-text-color, #fff);
     border: none;
     padding: 12px 20px;

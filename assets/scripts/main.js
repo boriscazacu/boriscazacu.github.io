@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("main-button");
     button.addEventListener("click", () => {
         const data = { action: "book", user: tg.initDataUnsafe.user };
-        sendData(data);
+        // sendData(data);
+        document.getElementById('json-display').textContent = tg.initDataUnsafe.user;
+
     });
 });
