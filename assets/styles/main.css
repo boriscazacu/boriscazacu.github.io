@@ -6,7 +6,7 @@
     --bg-hover: hsl(0, 0%, 20%);
     --text: hsl(0, 0%, 95%);
     --text-muted: hsl(0, 0%, 70%);
-    --time-line-position: 100px;
+    --time-line-position: 60px;
     --modal-height: 300px;
 }
 body {
@@ -20,6 +20,7 @@ body {
 
 main {
     padding: 0 1rem;
+    margin-bottom: 2rem;
 }
 
 h5, h4, small {
@@ -130,7 +131,23 @@ a {
     margin-top: 1rem;
     /* padding: 0 1rem; */
 
+    max-height: 80vh;
+    overflow-y: auto;
+
     position: relative;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--bg-light) transparent;
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: transparent;
+        border-radius: 8px;
+    }
 }
 
 .calendar_item {
@@ -139,7 +156,7 @@ a {
     gap: 1rem;
     margin-bottom: 7px;
     align-items: center;
-    max-height: 50px;
+    height: 60px;
 
     .time {
         color: var(--text);
@@ -155,7 +172,7 @@ a {
         padding: 10px;
         border-radius: 8px;
         transition: background-color 0.3s ease-in-out;
-        height: 25px;
+        height: 40px;
         cursor: pointer;
         opacity: 0.6;
 
@@ -164,6 +181,11 @@ a {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            font-size: 15px;
+            margin-bottom: 3px;
+        }
+        small {
+            font-size: 13px;
         }
     }
 
@@ -174,12 +196,6 @@ a {
     .info.active {
         opacity: 1 !important;
     }
-
-    /* .info.active {
-        border: 1px solid rgb(21 128 61 / 1);
-    } */
-
-
 }
 .calendar_current-time {
     position: absolute;
@@ -199,7 +215,6 @@ a {
     height: var(--modal-height);
     background-color: var(--bg-light);
     display: none;
-    transition: opacity 0.3s ease, visibility 0.3s;
     border-radius: 8px 8px 0 0;
     padding: 0 1rem;
     /* margin: 0 16px; */

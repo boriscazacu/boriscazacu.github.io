@@ -3,18 +3,45 @@ import { sendData, fetchData } from "./api.js";
 
 const modal = document.getElementById("appointment-modal");
 const closeModalButton = document.getElementById("close-modal");
+const timeStep = 30; // minutes
+const cellHeight = 60; // pixels per hour
+const startTimeInMinutes = 9 * 60; // 9:00 AM in minutes
+const endTimeInMinutes = 20 * 60; // 9:00 AM in minutes
 
+
+// 100 - 200 100/30
 
 document.addEventListener("DOMContentLoaded", async () => {
     // initTelegram();
     const data = await fetchData();
     populateCalendar(data);
 
+    calculateTopOffset();
+
     closeModalButton.addEventListener("click", () => {
         modal.classList.add("slide-in-bottom");
         modal.classList.remove("slide-in-top", "active");
     });
 });
+
+function calculateTopOffset() {
+    const root = document.documentElement;
+    const now = new Date();
+
+    let minutes = now.getHours() * 60 + now.getMinutes();
+
+    console.log("Current time in minutes:", minutes, now.getHours(), now.getMinutes());
+
+    if (minutes < startTimeInMinutes) {
+        minutes = 0;
+    }
+
+    const offsetMinutes = ((minutes - startTimeInMinutes) / timeStep) * cellHeight + cellHeight;
+    console.log("Offset minutes:", offsetMinutes);
+    
+
+    root.style.setProperty('--time-line-position', offsetMinutes + 'px');
+}
 
 function populateCalendar(appointments) {
     const calendar = document.getElementById("calendar");
@@ -47,10 +74,7 @@ function populateCalendar(appointments) {
 
         // Add click listener to open modal with details
         if (isActive) {
-            info.addEventListener('click', () => {
-                // const modal = document.getElementById("appointment-modal");
-                console.log(modal);
-                
+            info.addEventListener('click', () => {        
                 modal.querySelector(".modal-service").textContent = appointment.title;
                 modal.querySelector(".modal-client").textContent = appointment.client;
                 modal.querySelector(".modal-phone").textContent = appointment.phone;
