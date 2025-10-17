@@ -6,7 +6,7 @@
     --bg-hover: hsl(0, 0%, 20%);
     --text: hsl(0, 0%, 95%);
     --text-muted: hsl(0, 0%, 70%);
-    --time-line-position: 0px;
+    --time-line-position: 100px;
     --modal-height: 300px;
 }
 body {
@@ -127,7 +127,7 @@ a {
 .calendar {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
+    margin-top: 1rem;
     /* padding: 0 1rem; */
 
     position: relative;
@@ -157,19 +157,22 @@ a {
         transition: background-color 0.3s ease-in-out;
         height: 25px;
         cursor: pointer;
+        opacity: 0.6;
 
         h4 {
-            max-width: 320px;
+            max-width: 300px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
     }
 
-
-
     .info:hover, .info:focus {
         background-color: var(--bg-light);
+    }
+
+    .info.active {
+        opacity: 1 !important;
     }
 
     /* .info.active {
@@ -195,8 +198,7 @@ a {
     width: 94%;
     height: var(--modal-height);
     background-color: var(--bg-light);
-    visibility: hidden;
-    opacity: 0;
+    display: none;
     transition: opacity 0.3s ease, visibility 0.3s;
     border-radius: 8px 8px 0 0;
     padding: 0 1rem;
@@ -211,8 +213,7 @@ a {
 }
 
 .modal.active {
-    visibility: visible;
-    opacity: 1;
+    display: block;
 }
 
 .btn-close {
