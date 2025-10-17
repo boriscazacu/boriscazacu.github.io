@@ -2,7 +2,7 @@ import { tg, initTelegram } from "./telegram.js";
 import { sendData } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    initTelegram();
+    // initTelegram();
 
     // setTimeout(() => {
     //     console.log('Timeout')
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.classList.remove("active", "slide-in-top");
     });
     
-    document.querySelectorAll('.calendar_item .info').forEach(appointment => {
+    document.querySelectorAll('.calendar_item .info.active').forEach(appointment => {
         console.log('Adding listener to appointment', appointment);
         
         appointment.addEventListener('click', () => {

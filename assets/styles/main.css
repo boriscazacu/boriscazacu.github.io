@@ -14,8 +14,12 @@ body {
     background-color: var(--bg-dark);
     color: var(--text);
     margin: 0;
-    padding-bottom: var(--modal-height);
+    /* padding-bottom: var(--modal-height); */
     box-sizing: border-box;
+}
+
+main {
+    padding: 0 1rem;
 }
 
 h5, h4, small {
@@ -123,8 +127,8 @@ a {
 .calendar {
     display: flex;
     flex-direction: column;
-    width: 100%;
     margin-top: 2rem;
+    /* padding: 0 1rem; */
 
     position: relative;
 }
@@ -150,9 +154,9 @@ a {
         background-color: var(--bg);
         padding: 10px;
         border-radius: 8px;
-        cursor: pointer;
         transition: background-color 0.3s ease-in-out;
         height: 25px;
+        cursor: pointer;
 
         h4 {
             max-width: 320px;
@@ -162,7 +166,9 @@ a {
         }
     }
 
-    .info:hover, .info:focus, .info.active {
+
+
+    .info:hover, .info:focus {
         background-color: var(--bg-light);
     }
 
