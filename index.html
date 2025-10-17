@@ -9,16 +9,69 @@
     <title>My Telegram Web App</title>
 </head>
 <body>
-<header id="app-header"></header>
 
-<main class="flex flex-col items-center">
-    <h1 style="text-align: center">Welcome to My Telegram Web App</h1>
-    <p>This is where your content will go.</p>
-    <button id="main-button">Confirm</button>
+<header id="app-header">
+    <div class="flex justify-between items-center mx-4">
+        <div class="flex items-center gap-2">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngall.com%2Fwp-content%2Fuploads%2F3%2FTikTok-PNG-Free-Image.png&f=1&nofb=1&ipt=774e4d92e4e1cc5dac9ba8258ddfefcef4b10e95b2219ec4de3a0eebf4ef3029" alt="Logo" class="logo"/>
+            <h3>Salon Beauty</h3>
+        </div>
+        <a href="#" id="settings-link">Settings</a>
+    </div>
+</header>
+
+<main>
+    <h4>Calendarul meu</h4>
+    <div class="calendar" id="calendar">
+        <div class="calendar_item">
+            <span class="time">9:00</span>
+            <div class="info">
+                <h4>Tonarea părului / Painting hair</h4>
+                <small>Ion Radu / 093483353</small>
+            </div>
+        </div>
+        <div class="calendar_item">
+            <span class="time">9:30</span>
+            <div class="info">
+                <h4>Corecția sprâncenelor cu ceară/Коррекция бровей воском</h4>
+                <small>Ion Radu / 093483353</small>
+            </div>
+        </div>
+        <div class="calendar_item">
+            <span class="time">10:30</span>
+            <div class="info">
+                <h4>Machiaj nunt pentru mireasa</h4>
+                <small>Iona Radu / 093483353</small>
+            </div>
+        </div>
+        <div class="calendar_item">
+            <span class="time">10:30</span>
+            <div class="info">
+                <h4>Machiaj nunt pentru mireasa</h4>
+                <small>Iona Radu / 093483353</small>
+            </div>
+        </div>
+        <div class="calendar_current-time"></div>
+    </div>
+
+    <div class="modal" id="appointment-modal">
+        <div class="flex justify-between items-center">
+            <h3>Detalii programare</h3>
+            <button class="btn-close" id="close-modal"></button>
+        </div>
+        <div class="modal-content">
+            <p><strong>Nume:</strong> Ion Radu</p>
+            <p><strong>Serviciu:</strong> Tonarea părului / Painting hair</p>
+            <p><strong>Data și ora:</strong> 25 Decembrie 2023, 9:00 AM</p>
+            <p><strong>Telefon:</strong> 093483353</p>
+            <p><strong>Commentarii:</strong> Careva comentarii la programare</p>
+        </div>
+    </div>
+
 
     <pre id="json-display">Not work</pre>
 </main>
-<div class="app-loader active" id="app-loader-index">
+<div class="app-loader" id="app-loader-index">
     <img src="assets/images/animation.gif" alt="Animation"/>
 </div>
 

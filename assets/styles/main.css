@@ -1,12 +1,33 @@
+:root {
+    /*System theme colors*/
+    --bg-dark: hsl(0, 0%, 5%);
+    --bg: hsl(0, 0%, 10%);
+    --bg-light: hsl(0, 0%, 15%);
+    --bg-hover: hsl(0, 0%, 20%);
+    --text: hsl(0, 0%, 95%);
+    --text-muted: hsl(0, 0%, 70%);
+    --time-line-position: 0px;
+    --modal-height: 300px;
+}
 body {
     font-family: system-ui, sans-serif;
-    background-color: var(--tg-theme-bg-color, #ffffff);
-    color: var(--tg-theme-text-color, #000000);
+    background-color: var(--bg-dark);
+    color: var(--text);
     margin: 0;
+    padding-bottom: var(--modal-height);
+    box-sizing: border-box;
+}
+
+main {
     padding: 16px;
 }
 
-button {
+h5, h4, small {
+    margin: 0;
+    padding: 0;
+}
+
+.btn-success {
     background-color: var(--tg-theme-button-color, #216559);
     color: var(--tg-theme-button-text-color, #fff);
     border: none;
@@ -14,6 +35,23 @@ button {
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
+}
+
+header {
+    padding: 16px;
+
+    img {
+        height: 3.15rem;
+        width: 3.15rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 0.5rem;
+    }
+}
+
+a {
+    color: var(--tg-theme-link-color, #1a73e8);
+    text-decoration: none;
 }
 
 .flex {
@@ -36,6 +74,31 @@ button {
     justify-content: space-between;
 }
 
+.slide-in-top {
+    animation: slideInTop 0.4s forwards;
+}
+
+.slide-in-bottom {
+    animation: slideInBottom 0.4s forwards;
+}
+
+@keyframes slideInTop {
+    from {
+        transform: translateY(50%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes slideInBottom {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(50%);
+    }
+}
+
 .app-loader {
     position: fixed;
     top: 0;
@@ -43,19 +106,119 @@ button {
     width: 100%;
     height: 100%;
     z-index: 1000;
-    background-color: white;
-    display: flex;
+    background-color: var(--bg-dark);
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    visibility: hidden;
+    /* visibility: hidden;
     opacity: 0;
-    transition: opacity 0.3s ease, visibility 0.3s;
+    transition: opacity 0.3s ease, visibility 0.3s; */
     padding-bottom: 2rem;
 }
 
 .app-loader.active {
+    /* visibility: visible;
+    opacity: 1; */
+    display: flex;
+}
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+
+    position: relative;
+}
+
+.calendar_item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 1rem;
+    margin-bottom: 7px;
+    align-items: center;
+    max-height: 50px;
+
+
+    .time {
+        color: var(--text);
+        font-weight: bold;
+        font-size: 14px;
+        text-align: right;
+    }
+
+    .info {
+        color: var(--text-muted);
+        font-size: 13px;
+        background-color: var(--bg);
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .info:hover, .info:focus, .info.active {
+        background-color: var(--bg-light);
+    }
+
+    /* .info.active {
+        border: 1px solid rgb(21 128 61 / 1);
+    } */
+
+
+}
+.calendar_current-time {
+    position: absolute;
+    top: var(--time-line-position);
+    left: 0;
+    width: 100%;
+    border-top: 3px solid rgb(21 128 61);
+    opacity: 0.5;
+    z-index: 999;
+}
+
+.modal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 94%;
+    height: var(--modal-height);
+    background-color: var(--bg-light);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s;
+    border-radius: 8px 8px 0 0;
+    padding: 0 1rem;
+    /* margin: 0 16px; */
+}
+
+.modal-content {
+    margin-top: 1rem;
+    color: var(--text);
+    font-size: 14px;
+    padding: 0 1rem;;
+}
+
+.modal.active {
     visibility: visible;
     opacity: 1;
+}
+
+.btn-close {
+    background-color: transparent;
+    color: var(--text);
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+        transform: rotate(90deg);
+    }
+
+    &::after {
+        content: '✖';
+    }
 }
