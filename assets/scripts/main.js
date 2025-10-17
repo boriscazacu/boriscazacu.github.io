@@ -2,7 +2,7 @@ import { tg, initTelegram } from "./telegram.js";
 import { sendData } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    // initTelegram();
+    initTelegram();
 
     // setTimeout(() => {
     //     console.log('Timeout')

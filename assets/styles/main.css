@@ -141,7 +141,6 @@ a {
     align-items: center;
     max-height: 50px;
 
-
     .time {
         color: var(--text);
         font-weight: bold;
@@ -157,6 +156,14 @@ a {
         border-radius: 8px;
         cursor: pointer;
         transition: background-color 0.3s ease-in-out;
+        height: 25px;
+
+        h4 {
+            max-width: 350px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 
     .info:hover, .info:focus, .info.active {
