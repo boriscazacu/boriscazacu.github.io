@@ -18,10 +18,6 @@ body {
     box-sizing: border-box;
 }
 
-main {
-    padding: 16px;
-}
-
 h5, h4, small {
     margin: 0;
     padding: 0;
@@ -159,7 +155,7 @@ a {
         height: 25px;
 
         h4 {
-            max-width: 350px;
+            max-width: 320px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -228,4 +224,10 @@ a {
     &::after {
         content: '✖';
     }
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 90%;
 }
