@@ -40,12 +40,12 @@ function calculateTopOffset() {
         minutes = clientConfig.endTimeInMinutes;
     }
 
-    const offsetMinutes = ((minutes - clientConfig.startTimeInMinutes) / clientConfig.timeStep) * cellHeight + 38;
+    const offsetMinutes = ((minutes - clientConfig.startTimeInMinutes) / clientConfig.timeStep) * cellHeight;
     console.log("Offset minutes:", offsetMinutes);
     
 
-    root.style.setProperty('--time-line-position', offsetMinutes + 'px');
-    calendar.scrollTo(0, offsetMinutes - (38));
+    root.style.setProperty('--time-line-position', (offsetMinutes + clientConfig.timeStep * 2) + 'px');
+    calendar.scrollTo(0, offsetMinutes);
 }
 
 function populateCalendar(appointments) {
