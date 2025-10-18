@@ -141,12 +141,12 @@ a {
     scrollbar-color: var(--bg-light) transparent;
 
     &::-webkit-scrollbar-track {
-        background: transparent;
         border-radius: 8px;
+        background-color: transparent;
     }
 
     &::-webkit-scrollbar-thumb {
-        background: transparent;
+        background: var(--bg-light);
         border-radius: 8px;
     }
 }

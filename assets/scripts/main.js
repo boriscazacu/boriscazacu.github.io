@@ -12,10 +12,6 @@ const clientConfig = {
     endTimeInMinutes: 19 * 60 // 9:00 AM in minutes
 }
 
-
-
-// 100 - 200 100/30
-
 document.addEventListener("DOMContentLoaded", async () => {
     // initTelegram();
     const data = await fetchData();
@@ -49,7 +45,7 @@ function calculateTopOffset() {
     
 
     root.style.setProperty('--time-line-position', offsetMinutes + 'px');
-    calendar.scrollTo(0, offsetMinutes - 25);
+    calendar.scrollTo(0, offsetMinutes - (38));
 }
 
 function populateCalendar(appointments) {
