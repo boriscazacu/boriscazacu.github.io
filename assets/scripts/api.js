@@ -31,7 +31,7 @@ export async function fetchData() {
         { id: 11, time: "16:00"},
         { id: 13, time: "16:30"},
         { id: 15, time: "17:00", title: "Pedichiură spa / Spa pedicure", client: "Cristina Vasilescu", phone: "093483353", date: "28 Decembrie 2023, 17:00 PM" },
-        { id: 16, time: "17:30"},
+        { id: 16, time: "17:30", title: "Machiaj de zi / Day makeup", client: "Ioana Georgescu", phone: "093483353", date: "28 Decembrie 2023, 17:30 PM" },
         { id: 17, time: "18:00", title: "Coafură pentru ocazii speciale / Hairstyling for special occasions", client: "Gabriela Stan", phone: "093483353", date: "28 Decembrie 2023, 18:00 PM" },
         { id: 18, time: "18:30"},
     ];
