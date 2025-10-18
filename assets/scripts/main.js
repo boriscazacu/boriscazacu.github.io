@@ -4,12 +4,13 @@ import { sendData, fetchData } from "./api.js";
 const modal = document.getElementById("appointment-modal");
 const closeModalButton = document.getElementById("close-modal");
 const calendar = document.getElementById("calendar");
-const cellHeight = 60 + 7; // pixels per hour
+const cellHeight = 60 + 7; // 60px height + 7px border-bottom
+let curentDate = new Date();
 
 const clientConfig = {
     timeStep: 30, // minutes
-    startTimeInMinutes: 9 * 60, // 9:00 AM in minutes
-    endTimeInMinutes: 19 * 60 // 9:00 AM in minutes
+    startTimeInMinutes: 9 * 60, // 9:00 in minutes
+    endTimeInMinutes: 19 * 60
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -88,4 +89,23 @@ function populateCalendar(appointments) {
             });
         }
     });
+}
+
+document.getElementById("prev-day-btn").addEventListener("click", (e) => {
+    updateCurrentTimeIndicator(-1);
+});
+
+document.getElementById("next-day-btn").addEventListener("click", (e) => {
+    updateCurrentTimeIndicator(1);
+});
+
+function updateCurrentTimeIndicator(value) {
+    curentDate.setDate(curentDate.getDate() + value);
+    const dateString = curentDate.toLocaleDateString('ro-RO', { weekday: "long", day: '2-digit', month: "long" });
+    console.log("Updated date:", capitalise(dateString));
+    document.getElementById("currentTimeDisplay").textContent = capitalise(dateString);
+}
+
+function capitalise(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
 }
