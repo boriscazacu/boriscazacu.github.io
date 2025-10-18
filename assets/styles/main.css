@@ -49,7 +49,7 @@ header {
         margin-right: 0.5rem;
     }
     a {
-        font-size: 13px;
+        font-size: 14px;
         color: var(--tg-theme-link-color, #3466a8);
         text-decoration: none;
 
@@ -138,6 +138,7 @@ header {
     max-height: 80vh;
     overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-gutter: stable; 
 
     position: relative;
 
