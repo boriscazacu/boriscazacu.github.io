@@ -24,8 +24,15 @@ export async function fetchData() {
         { id: 41, time: "12:30"},
         { id: 12, time: "13:00"},
         { id: 7, time: "13:30", title: "Tunsore bărbați /   Men's haircut", client: "Ion Branza", phone: "093483353", date: "26 Decembrie 2023, 12:00 PM" },
-        { id: 8, time: "14:00"},
+        { id: 8, time: "14:00", title: "Vopsit păr / Hair coloring", client: "Ana Popescu", phone: "093483353", date: "27 Decembrie 2023, 14:00 PM" },
         { id: 9, time: "14:30"},
-    
+        { id: 19, time: "15:00"},
+        { id: 10, time: "15:30", title: "Manichiură cu gel / Gel manicure", client: "Elena Ionescu", phone: "093483353", date: "27 Decembrie 2023, 15:30 PM" },
+        { id: 11, time: "16:00"},
+        { id: 13, time: "16:30"},
+        { id: 15, time: "17:00", title: "Pedichiură spa / Spa pedicure", client: "Cristina Vasilescu", phone: "093483353", date: "28 Decembrie 2023, 17:00 PM" },
+        { id: 16, time: "17:30"},
+        { id: 17, time: "18:00", title: "Coafură pentru ocazii speciale / Hairstyling for special occasions", client: "Gabriela Stan", phone: "093483353", date: "28 Decembrie 2023, 18:00 PM" },
+        { id: 18, time: "18:30"},
     ];
 }

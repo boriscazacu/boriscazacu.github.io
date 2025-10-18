@@ -3,10 +3,15 @@ import { sendData, fetchData } from "./api.js";
 
 const modal = document.getElementById("appointment-modal");
 const closeModalButton = document.getElementById("close-modal");
-const timeStep = 30; // minutes
+const calendar = document.getElementById("calendar");
 const cellHeight = 60; // pixels per hour
-const startTimeInMinutes = 9 * 60; // 9:00 AM in minutes
-const endTimeInMinutes = 20 * 60; // 9:00 AM in minutes
+
+const clientConfig = {
+    timeStep: 30, // minutes
+    startTimeInMinutes: 9 * 60, // 9:00 AM in minutes
+    endTimeInMinutes: 19 * 60 // 9:00 AM in minutes
+}
+
 
 
 // 100 - 200 100/30
@@ -32,15 +37,19 @@ function calculateTopOffset() {
 
     console.log("Current time in minutes:", minutes, now.getHours(), now.getMinutes());
 
-    if (minutes < startTimeInMinutes) {
+    if (minutes < clientConfig.startTimeInMinutes) {
         minutes = 0;
     }
+    else if (minutes > clientConfig.endTimeInMinutes) {
+        minutes = clientConfig.endTimeInMinutes;
+    }
 
-    const offsetMinutes = ((minutes - startTimeInMinutes) / timeStep) * cellHeight + cellHeight;
+    const offsetMinutes = ((minutes - clientConfig.startTimeInMinutes) / clientConfig.timeStep) * cellHeight + 38;
     console.log("Offset minutes:", offsetMinutes);
     
 
     root.style.setProperty('--time-line-position', offsetMinutes + 'px');
+    calendar.scrollTo(0, offsetMinutes - 25);
 }
 
 function populateCalendar(appointments) {
