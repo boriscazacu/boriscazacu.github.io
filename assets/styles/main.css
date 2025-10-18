@@ -133,7 +133,6 @@ header {
     display: flex;
     flex-direction: column;
     margin-top: 1.5rem;
-    /* padding: 0 1rem; */
 
     max-height: 80vh;
     overflow-y: auto;
@@ -147,11 +146,11 @@ header {
 
     &::-webkit-scrollbar-track {
         border-radius: 8px;
-        background-color: transparent;
+        background-color: transparent !important;
     }
 
     &::-webkit-scrollbar-thumb {
-        background: var(--bg-light);
+        background: var(--bg-light) !important;
         border-radius: 8px;
     }
 }
