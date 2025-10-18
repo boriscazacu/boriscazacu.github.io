@@ -4,7 +4,7 @@ import { sendData, fetchData } from "./api.js";
 const modal = document.getElementById("appointment-modal");
 const closeModalButton = document.getElementById("close-modal");
 const calendar = document.getElementById("calendar");
-const cellHeight = 60; // pixels per hour
+const cellHeight = 60 + 7; // pixels per hour
 
 const clientConfig = {
     timeStep: 30, // minutes
@@ -42,10 +42,9 @@ function calculateTopOffset() {
 
     const offsetMinutes = ((minutes - clientConfig.startTimeInMinutes) / clientConfig.timeStep) * cellHeight;
     console.log("Offset minutes:", offsetMinutes);
-    
 
-    root.style.setProperty('--time-line-position', (offsetMinutes + clientConfig.timeStep * 2) + 'px');
-    calendar.scrollTo(0, offsetMinutes);
+    root.style.setProperty('--time-line-position', (offsetMinutes - 7) + 'px');
+    calendar.scrollTo(0, offsetMinutes - cellHeight);
 }
 
 function populateCalendar(appointments) {
@@ -79,7 +78,7 @@ function populateCalendar(appointments) {
 
         // Add click listener to open modal with details
         if (isActive) {
-            info.addEventListener('click', () => {        
+            info.addEventListener('click', () => {
                 modal.querySelector(".modal-service").textContent = appointment.title;
                 modal.querySelector(".modal-client").textContent = appointment.client;
                 modal.querySelector(".modal-phone").textContent = appointment.phone;

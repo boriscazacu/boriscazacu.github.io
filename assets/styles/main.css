@@ -134,7 +134,7 @@ header {
     flex-direction: column;
     margin-top: 1.5rem;
 
-    max-height: 70vh;
+    max-height: calc(100vh - 200px);
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-gutter: stable; 
@@ -247,6 +247,23 @@ header {
 .modal.active {
     opacity: 1;
     visibility: visible;
+}
+
+.btn {
+    background-color: transparent;
+    color: var(--text);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    padding: 0;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+.day-change {
+    padding: 1rem 0 .25rem 0;
 }
 
 .btn-close {

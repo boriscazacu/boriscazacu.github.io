@@ -1,54 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="favicon.png">
-    <link rel="stylesheet" href="assets/styles/main.css"/>
+    <link rel="stylesheet" href="assets/styles/main.css" />
     <script src="https://telegram.org/js/telegram-web-app.js" defer></script>
     <title>My Telegram Web App</title>
 </head>
+
 <body>
 
-<header id="app-header">
-    <div class="flex justify-between items-center ">
-        <div class="flex items-center gap-2">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffreepnglogo.com%2Fimages%2Fall_img%2F1691829400logo-canva-png.png&f=1&nofb=1&ipt=414decfee9f6c3ae78a5b6e5dcd4fd541a6949873dae9820de375d4e40bee7c8" alt="Logo" class="logo"/>
-            <h4>Salon Beauty</h4>
+    <header id="app-header">
+        <div class="flex justify-between items-center ">
+            <div class="flex items-center gap-2">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffreepnglogo.com%2Fimages%2Fall_img%2F1691829400logo-canva-png.png&f=1&nofb=1&ipt=414decfee9f6c3ae78a5b6e5dcd4fd541a6949873dae9820de375d4e40bee7c8"
+                    alt="Logo" class="logo" />
+                <h4>Salon Beauty</h4>
+            </div>
+            <a href="#" id="settings-link">Settings</a>
         </div>
-        <a href="#" id="settings-link">Settings</a>
-    </div>
-</header>
+    </header>
 
-<main>
-    <h4 style="text-align: center;">Calendarul meu</h4>
-    <div class="calendar" id="calendar">
-
-        <div class="calendar_current-time"></div>
-    </div>
-
-    <div class="modal" id="appointment-modal">
-        <div class="flex justify-between items-center">
-            <h3>Detalii programare</h3>
-            <button class="btn-close" id="close-modal"></button>
+    <main>
+        <div class="flex justify-between items-center day-change">
+            <button class="btn" id="prev-day-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-chevrons-left-icon lucide-chevrons-left">
+                    <path d="m11 17-5-5 5-5" />
+                    <path d="m18 17-5-5 5-5" />
+                </svg>
+            </button>
+            <h4 style="text-align: center;">Astazi, 18 octombrie</h4>
+            <button class="btn" id="next-day-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-chevrons-right-icon lucide-chevrons-right">
+                    <path d="m6 17 5-5-5-5" />
+                    <path d="m13 17 5-5-5-5" />
+                </svg>
+            </button>
         </div>
-        <div class="modal-content">
-            <strong>Serviciu:</strong> <span class="modal-service"></span>
-            <strong>Client:</strong> <span class="modal-client"></span>
-            <strong>Data și ora:</strong> <span class="modal-date"></span>
-            <strong>Telefon:</strong> <span class="modal-phone"></span>
-            <strong>Commentarii:</strong> <span>comentarii la programare</span>
+        <div class="calendar" id="calendar">
+            <div class="calendar_current-time"></div>
         </div>
+
+        <div class="modal" id="appointment-modal">
+            <div class="flex justify-between items-center">
+                <h3>Detalii programare</h3>
+                <button class="btn-close" id="close-modal"></button>
+            </div>
+            <div class="modal-content">
+                <strong>Serviciu:</strong> <span class="modal-service"></span>
+                <strong>Client:</strong> <span class="modal-client"></span>
+                <strong>Data și ora:</strong> <span class="modal-date"></span>
+                <strong>Telefon:</strong> <span class="modal-phone"></span>
+                <strong>Commentarii:</strong> <span>comentarii la programare</span>
+            </div>
+        </div>
+
+
+        <!-- <pre id="json-display">Not work</pre> -->
+    </main>
+    <div class="app-loader" id="app-loader-index">
+        <img src="assets/images/animation.gif" alt="Animation" />
     </div>
 
 
-    <!-- <pre id="json-display">Not work</pre> -->
-</main>
-<div class="app-loader" id="app-loader-index">
-    <img src="assets/images/animation.gif" alt="Animation"/>
-</div>
-
-
-<script type="module" src="assets/scripts/main.js"></script>
+    <script type="module" src="assets/scripts/main.js"></script>
 </body>
+
 </html>
