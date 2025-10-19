@@ -32,8 +32,6 @@ function calculateTopOffset() {
 
     let minutes = now.getHours() * 60 + now.getMinutes();
 
-    console.log("Current time in minutes:", minutes, now.getHours(), now.getMinutes());
-
     if (minutes < clientConfig.startTimeInMinutes) {
         minutes = 0;
     }
@@ -44,8 +42,9 @@ function calculateTopOffset() {
     const offsetMinutes = ((minutes - clientConfig.startTimeInMinutes) / clientConfig.timeStep) * cellHeight;
     console.log("Offset minutes:", offsetMinutes);
 
-    root.style.setProperty('--time-line-position', (offsetMinutes - 7) + 'px');
+    root.style.setProperty('--time-line-position', (offsetMinutes - 25) + 'px');
     calendar.scrollTo(0, offsetMinutes - cellHeight);
+    document.querySelector(".calendar_current-time").textContent = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
 }
 
 function populateCalendar(appointments) {

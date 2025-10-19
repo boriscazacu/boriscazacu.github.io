@@ -42,8 +42,9 @@ header {
     padding: 16px;
 
     img {
-        height: 3rem;
-        width: 3rem;
+        --size: 2.5rem;
+        height: var(--size);
+        width: var(--size);
         border-radius: 50%;
         object-fit: cover;
         margin-right: 0.5rem;
@@ -203,13 +204,19 @@ header {
     }
 }
 .calendar_current-time {
+    --color: rgb(21 128 61);
     position: absolute;
     top: var(--time-line-position);
-    left: 0;
-    width: 100%;
-    border-top: 3px solid rgb(21 128 61);
+    right: 0;
+    width: 85%;
+    border-bottom: 3px solid var(--color);
     opacity: 0.5;
     z-index: 99;
+    /* Show time */
+    text-align: right;
+    padding-right: 1rem;
+    color: var(--color);
+    font-weight: bold;
 }
 
 .modal {
@@ -263,7 +270,7 @@ header {
 }
 
 .day-change {
-    padding: 1rem 0 .25rem 0;
+    padding: .5rem 0 .25rem 0;
 }
 
 .btn-close {
