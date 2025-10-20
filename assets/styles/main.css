@@ -121,10 +121,7 @@ header {
 
     scrollbar-width: thin;
     scrollbar-color: var(--bg-light) transparent;
-}
-
-*::-webkit-scrollbar {
-    display: none;
+    -ms-overflow-style: none;
 }
 
 .calendar::-webkit-scrollbar-track {
@@ -133,6 +130,7 @@ header {
 }
 .calendar::-webkit-scrollbar {
     width: 3px;
+    background-color: red;
 }
 .calendar::-webkit-scrollbar-thumb {
     background: var(--bg-light) !important;
