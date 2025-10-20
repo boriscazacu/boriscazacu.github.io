@@ -20,26 +20,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     startCalculateTimeOffsetInterval();
 
     closeModalButton.addEventListener("click", () => {
-        modal.classList.add("slide-in-bottom");
-        modal.classList.remove("slide-in-top", "active");
+        closeModal();
     });
 });
-
-function startCalculateTimeOffsetInterval() {
-    const now = new Date();
-    const msUntilNextMinute =
-        (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
-
-    // 3️⃣ Wait until the next exact minute, then start syncing every minute
-    setTimeout(() => {
-        calculateTopOffset();
-
-        // Run exactly every minute after that
-        setInterval(calculateTopOffset, 60 * 1000);
-    }, msUntilNextMinute);
-
-}
-
 
 document.getElementById("prev-day-btn").addEventListener("click", (e) => {
     updateCurrentTimeIndicator(-1);
@@ -49,10 +32,36 @@ document.getElementById("next-day-btn").addEventListener("click", (e) => {
     updateCurrentTimeIndicator(1);
 });
 
+// ==================== METHODS ==============================================
+
+function closeModal() {
+    modal.classList.add("slide-in-bottom");
+    modal.classList.remove("slide-in-top", "active");
+}
+
+function startCalculateTimeOffsetInterval() {
+    const now = new Date();
+    const msUntilNextMinute =
+        (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
+
+    // 3️⃣ Wait until the next exact minute, then start syncing every minute
+    calculateTopOffset();
+
+    setTimeout(() => {
+        // Run exactly every minute after that
+        setInterval(calculateTopOffset, 60 * 1000);
+    }, msUntilNextMinute);
+
+}
+
 // Method to get calendar data
 async function getCalendarData(filters) {
-    const data = await fetchData(filters);
-    populateCalendar(data);
+    loader(true);
+    closeModal();
+    setTimeout(async () => {
+        const data = await fetchData(filters);
+        populateCalendar(data);
+    }, 1500);
 }
 
 function calculateTopOffset() {
@@ -72,7 +81,7 @@ function calculateTopOffset() {
         minutes = clientConfig.endTimeInMinutes;
     }
 
-    const offsetMinutes = ((minutes - clientConfig.startTimeInMinutes) / clientConfig.timeStep) * cellHeight;
+    const offsetMinutes = Math.round(((minutes - clientConfig.startTimeInMinutes) / clientConfig.timeStep) * cellHeight);
     console.log("Offset minutes:", offsetMinutes);
 
     root.style.setProperty('--time-line-position', (offsetMinutes - 24) + 'px');
@@ -136,6 +145,7 @@ function populateCalendar(appointments) {
                 modal.classList.add("slide-in-top", "active");
             });
         }
+        loader(false);
     });
 }
 
@@ -165,4 +175,13 @@ async function updateCurrentTimeIndicator(value) {
 
 function capitalise(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function loader(show) {
+    const loaderElement = document.getElementById("calendar-loader");
+    if (show) {
+        loaderElement.style.display = "flex";
+    } else {
+        loaderElement.style.display = "none";
+    }
 }

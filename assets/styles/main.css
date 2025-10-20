@@ -8,6 +8,7 @@
     --text-muted: hsl(0, 0%, 70%);
     --time-line-position: 60px;
     --modal-height: 300px;
+    --primary-color: rgb(21 128 61);
 }
 body {
     font-family: system-ui, sans-serif;
@@ -134,8 +135,9 @@ header {
     display: flex;
     flex-direction: column;
     margin-top: 1.5rem;
+    z-index: 1;
 
-    max-height: calc(100vh - 200px);
+    height: calc(100vh - 190px);
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-gutter: stable; 
@@ -150,9 +152,9 @@ header {
     border-radius: 8px;
     background-color: transparent !important;
 }
-.calendar::-webkit-scrollbar {
+/* .calendar::-webkit-scrollbar {
     width: 8px;
-}
+} */
 .calendar::-webkit-scrollbar-thumb {
     background: var(--bg-light) !important;
     border-radius: 8px;
@@ -206,18 +208,17 @@ header {
     }
 }
 .calendar_current-time {
-    --color: rgb(21 128 61);
     position: absolute;
     top: var(--time-line-position);
     right: 0;
     width: 85%;
-    border-bottom: 3px solid var(--color);
+    border-bottom: 3px solid var(--primary-color);
     opacity: 0.6;
     z-index: 99;
     /* Show time */
     text-align: right;
     padding-right: 1rem;
-    color: var(--color);
+    color: var(--primary-color);
     font-weight: 500;
 
     transition: top 0.5s ease-in-out;
@@ -232,7 +233,7 @@ header {
     background-color: var(--bg-light);
     border-radius: 8px 8px 0 0;
     padding: 0 1rem;
-    z-index: 999;
+    z-index: 997;
     /* margin: 0 16px; */
 
     opacity: 0;
@@ -299,3 +300,90 @@ pre {
     word-wrap: break-word;
     max-width: 90%;
 }
+
+.loader-container {
+    width: 100%;
+    height: calc(100vh - 130px);
+    position: fixed;
+    top: 135px;
+    left: 0;
+    background-color: var(--bg-dark);
+    z-index: 999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader {
+        transform: rotateZ(45deg);
+        perspective: 1000px;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        color: #fff;
+      }
+        .loader:before,
+        .loader:after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: inherit;
+          height: inherit;
+          border-radius: 50%;
+          transform: rotateX(70deg);
+          animation: 1s spin linear infinite;
+        }
+        .loader:after {
+          color: var(--primary-color);
+          transform: rotateY(70deg);
+          animation-delay: .4s;
+        }
+
+      @keyframes rotate {
+        0% {
+          transform: translate(-50%, -50%) rotateZ(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotateZ(360deg);
+        }
+      }
+
+      @keyframes rotateccw {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(-360deg);
+        }
+      }
+
+      @keyframes spin {
+        0%,
+        100% {
+          box-shadow: .2em 0px 0 0px currentcolor;
+        }
+        12% {
+          box-shadow: .2em .2em 0 0 currentcolor;
+        }
+        25% {
+          box-shadow: 0 .2em 0 0px currentcolor;
+        }
+        37% {
+          box-shadow: -.2em .2em 0 0 currentcolor;
+        }
+        50% {
+          box-shadow: -.2em 0 0 0 currentcolor;
+        }
+        62% {
+          box-shadow: -.2em -.2em 0 0 currentcolor;
+        }
+        75% {
+          box-shadow: 0px -.2em 0 0 currentcolor;
+        }
+        87% {
+          box-shadow: .2em -.2em 0 0 currentcolor;
+        }
+      }
+   
