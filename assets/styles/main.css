@@ -106,31 +106,6 @@ header {
     }
 }
 
-.app-loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    background-color: var(--bg-dark);
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    /* visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease, visibility 0.3s; */
-    padding-bottom: 2rem;
-}
-
-.app-loader.active {
-    /* visibility: visible;
-    opacity: 1; */
-    display: flex;
-}
-
 .calendar {
     display: flex;
     flex-direction: column;
@@ -146,6 +121,10 @@ header {
 
     scrollbar-width: thin;
     scrollbar-color: var(--bg-light) transparent;
+}
+
+*::-webkit-scrollbar {
+    display: none;
 }
 
 .calendar::-webkit-scrollbar-track {
@@ -177,7 +156,6 @@ header {
 
     .info {
         color: var(--text-muted);
-        font-size: 13px;
         background-color: var(--bg);
         padding: 10px;
         border-radius: 8px;

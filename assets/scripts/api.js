@@ -19,7 +19,7 @@ export async function fetchData(filters) {
         return [
             { id: 3, time: "10:00" },
             { id: 4, time: "10:30" },
-            { id: 14, time: "11:00" },
+            { id: 14, time: "11:00", client: "Ion Moldovanu", phone: "093483353", date: "20 Octombrie 2023, 11:00" },
             { id: 41, time: "12:30" },
             { id: 12, time: "13:00" },
             { id: 9, time: "14:30" },

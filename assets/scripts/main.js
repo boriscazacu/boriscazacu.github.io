@@ -111,7 +111,7 @@ function populateCalendar(appointments) {
 
 
     appointments.forEach(appointment => {
-        const isActive = appointment.title && appointment.client;
+        const isActive = appointment.phone && appointment.client;
         const item = document.createElement("div");
         item.className = "calendar_item";
 
@@ -123,10 +123,12 @@ function populateCalendar(appointments) {
         info.className = `info ${isActive ? "active" : ""}`;
 
         const title = document.createElement("h4");
-        title.textContent = appointment.title;
+        title.textContent = appointment.title || appointment.client;
 
         const clientInfo = document.createElement("small");
-        clientInfo.textContent = `${appointment.client} / ${appointment.phone}`;
+        clientInfo.textContent = !appointment.title
+            ? appointment.phone
+            : `${appointment.client} / ${appointment.phone}`;
 
         if (isActive) {
             info.appendChild(title);
