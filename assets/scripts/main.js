@@ -14,7 +14,7 @@ const clientConfig = {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    // initTelegram();
+    initTelegram();
     await updateCurrentTimeIndicator(0);
 
     startCalculateTimeOffsetInterval();
