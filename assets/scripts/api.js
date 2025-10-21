@@ -14,18 +14,29 @@ export async function sendData(data) {
 
 export async function fetchData(filters) {
     console.log("Fetching data with filters:", filters);
-    if ('2025-10-20' !== filters.date) {
+    if (!filters.isToday) {
         console.log("No data for the selected date:", filters.date);
         return [
+            { id: 3, time: "9:00" },
+            { id: 3, time: "9:30" },
             { id: 3, time: "10:00" },
             { id: 4, time: "10:30" },
             { id: 14, time: "11:00", client: "Ion Moldovanu", phone: "093483353", date: "20 Octombrie 2023, 11:00" },
+            { id: 41, time: "11:30" },
+            { id: 41, time: "12:00" },
             { id: 41, time: "12:30" },
             { id: 12, time: "13:00" },
+            { id: 9, time: "13:30" },
+            { id: 9, time: "14:00" },
             { id: 9, time: "14:30" },
             { id: 19, time: "15:00" },
+            { id: 19, time: "15:30" },
             { id: 11, time: "16:00" },
             { id: 13, time: "16:30" },
+            { id: 13, time: "17:00" },
+            { id: 13, time: "17:30" },
+            { id: 13, time: "18:00" },
+            { id: 13, time: "18:30" },
         ];
     }
     return [

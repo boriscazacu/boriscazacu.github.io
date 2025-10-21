@@ -174,7 +174,7 @@ async function updateCurrentTimeIndicator(value) {
         }
     }
     document.getElementById("currentTimeDisplay").textContent = capitalise(dateString);
-    await getCalendarData({ date: currentDate.toISOString().split('T')[0] });
+    await getCalendarData({ isToday: isEqualNow(currentDate) });
 }
 
 function capitalise(str) {
