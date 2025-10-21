@@ -44,9 +44,6 @@ function startCalculateTimeOffsetInterval() {
     const msUntilNextMinute =
         (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
 
-    // 3️⃣ Wait until the next exact minute, then start syncing every minute
-    calculateTopOffset();
-
     setTimeout(() => {
         // Run exactly every minute after that
         setInterval(calculateTopOffset, 60 * 1000);
@@ -61,6 +58,9 @@ async function getCalendarData(filters) {
     setTimeout(async () => {
         const data = await fetchData(filters);
         populateCalendar(data);
+
+        calendar.scrollTo(0, 0);
+        calculateTopOffset();
     }, 1500);
 }
 
