@@ -84,10 +84,9 @@ function calculateTopOffset() {
     const offsetMinutes = Math.round(
         ((minutes - clientConfig.startTimeInMinutes) / clientConfig.timeStep) * cellHeight
     );
-    console.log("Offset minutes:", offsetMinutes, offsetMinutes - cellHeight);
 
-    root.style.setProperty('--time-line-position', (offsetMinutes - 22) + 'px');
-    calendar.scrollTo(0, offsetMinutes - cellHeight);
+    root.style.setProperty('--time-line-position', (offsetMinutes - 21) + 'px');
+    calendar.scrollTo(0, offsetMinutes);
     document.querySelector(".calendar_current-time").textContent = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
 }
 
