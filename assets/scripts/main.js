@@ -86,7 +86,7 @@ function calculateTopOffset() {
     );
 
     root.style.setProperty('--time-line-position', (offsetMinutes - 21) + 'px');
-    calendar.scrollTo(0, offsetMinutes);
+    calendar.scrollTo(0, offsetMinutes - cellHeight);
     document.querySelector(".calendar_current-time").textContent = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
 }
 
