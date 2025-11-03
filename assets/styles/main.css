@@ -279,9 +279,9 @@ pre {
 
 .loader-container {
     width: 100%;
-    height: calc(100vh - 190px);
+    height: calc(100vh - 165px);
     position: fixed;
-    top: 135px;
+    top: 125px;
     left: 0;
     background-color: var(--bg-dark);
     z-index: 999;
