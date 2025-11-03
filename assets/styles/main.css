@@ -9,7 +9,9 @@
     --time-line-position: 60px;
     --modal-height: 300px;
     --primary-color: rgb(21 128 61);
+    --index: calc(1vh + 1vw)
 }
+
 body {
     font-family: system-ui, sans-serif;
     background-color: var(--bg-dark);
@@ -50,6 +52,7 @@ header {
         object-fit: cover;
         margin-right: 0.5rem;
     }
+
     a {
         font-size: 14px;
         color: var(--tg-theme-link-color, #3466a8);
@@ -97,6 +100,7 @@ header {
         transform: translateY(0);
     }
 }
+
 @keyframes slideInBottom {
     from {
         transform: translateY(0);
@@ -115,7 +119,7 @@ header {
     height: calc(100vh - 190px);
     overflow-y: auto;
     overflow-x: hidden;
-    scrollbar-gutter: stable; 
+    scrollbar-gutter: stable;
 
     position: relative;
 
@@ -128,10 +132,12 @@ header {
     border-radius: 8px;
     background: transparent !important;
 }
+
 .calendar::-webkit-scrollbar {
     width: 3px;
     background-color: transparent;
 }
+
 .calendar::-webkit-scrollbar-thumb {
     background: var(--bg-light) !important;
     border-radius: 8px;
@@ -170,6 +176,7 @@ header {
             font-size: 15px;
             margin-bottom: 3px;
         }
+
         small {
             font-size: 13px;
         }
@@ -183,6 +190,7 @@ header {
         opacity: 1 !important;
     }
 }
+
 .calendar_current-time {
     position: absolute;
     top: var(--time-line-position);
@@ -204,7 +212,7 @@ header {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 94vw;
+    width: calc(100vw - 32px);
     height: var(--modal-height);
     background-color: var(--bg-light);
     border-radius: 8px 8px 0 0;
@@ -260,7 +268,7 @@ header {
     border: none;
     font-size: 25px;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.4s ease-in-out;
 
     &:hover {
         transform: rotate(90deg);
@@ -276,90 +284,3 @@ pre {
     word-wrap: break-word;
     max-width: 90%;
 }
-
-.loader-container {
-    width: 100%;
-    height: calc(100vh - 165px);
-    position: fixed;
-    top: 125px;
-    left: 0;
-    background-color: var(--bg-dark);
-    z-index: 999;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.loader {
-        transform: rotateZ(45deg);
-        perspective: 1000px;
-        border-radius: 50%;
-        width: 48px;
-        height: 48px;
-        color: var(--text);
-      }
-        .loader:before,
-        .loader:after {
-          content: '';
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: inherit;
-          height: inherit;
-          border-radius: 50%;
-          transform: rotateX(70deg);
-          animation: 1s spin linear infinite;
-        }
-        .loader:after {
-          color: var(--primary-color);
-          transform: rotateY(70deg);
-          animation-delay: .4s;
-        }
-
-      @keyframes rotate {
-        0% {
-          transform: translate(-50%, -50%) rotateZ(0deg);
-        }
-        100% {
-          transform: translate(-50%, -50%) rotateZ(360deg);
-        }
-      }
-
-      @keyframes rotateccw {
-        0% {
-          transform: translate(-50%, -50%) rotate(0deg);
-        }
-        100% {
-          transform: translate(-50%, -50%) rotate(-360deg);
-        }
-      }
-
-      @keyframes spin {
-        0%,
-        100% {
-          box-shadow: .2em 0px 0 0px currentcolor;
-        }
-        12% {
-          box-shadow: .2em .2em 0 0 currentcolor;
-        }
-        25% {
-          box-shadow: 0 .2em 0 0px currentcolor;
-        }
-        37% {
-          box-shadow: -.2em .2em 0 0 currentcolor;
-        }
-        50% {
-          box-shadow: -.2em 0 0 0 currentcolor;
-        }
-        62% {
-          box-shadow: -.2em -.2em 0 0 currentcolor;
-        }
-        75% {
-          box-shadow: 0px -.2em 0 0 currentcolor;
-        }
-        87% {
-          box-shadow: .2em -.2em 0 0 currentcolor;
-        }
-      }
-   
