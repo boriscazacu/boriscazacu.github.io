@@ -284,3 +284,7 @@ pre {
     word-wrap: break-word;
     max-width: 90%;
 }
+
+.cp {
+    cursor: pointer;
+}

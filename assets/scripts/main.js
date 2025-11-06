@@ -1,7 +1,8 @@
-import { tg, initTelegram } from "./telegram.js";
-import { sendData, fetchData } from "./api.js";
+import { initTelegram } from "./telegram.js";
+import { fetchData } from "./api.js";
 
 const modal = document.getElementById("appointment-modal");
+const tgModal = document.getElementById("tg-data-modal");
 const closeModalButton = document.getElementById("close-modal");
 const calendar = document.getElementById("calendar");
 const cellHeight = 60 + 7; // 60px height + 7px border-bottom
@@ -30,6 +31,17 @@ document.getElementById("prev-day-btn").addEventListener("click", (e) => {
 
 document.getElementById("next-day-btn").addEventListener("click", (e) => {
     updateCurrentTimeIndicator(1);
+});
+
+
+//For test
+document.getElementById("settings-link").addEventListener("click", (e) => {
+    tgModal.classList.remove("active", "slide-in-bottom");
+    tgModal.classList.add("slide-in-top", "active");
+});
+document.getElementById("close-tg-modal").addEventListener("click", (e) => {
+    tgModal.classList.add("slide-in-bottom");
+    tgModal.classList.remove("slide-in-top", "active");
 });
 
 // ==================== METHODS ==============================================
