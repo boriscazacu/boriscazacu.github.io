@@ -78,6 +78,8 @@ async function getCalendarData(filters) {
         if (!Array.isArray(data)) {
             document.getElementById("calendar").style.display = 'none';
             document.getElementById("login-form").style.display = 'flex';
+            document.getElementById("display-error").textContent = JSON.stringify(data);
+
             hideCurrentTimeIndicator = true;
             loader(false);
             return;
