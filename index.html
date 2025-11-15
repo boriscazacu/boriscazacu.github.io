@@ -49,6 +49,17 @@
             <div class="calendar_current-time">14:30</div>
         </div>
 
+        <div class="login-form" id="login-form">
+            <h2>Bine ai venit,</h2>
+            <p>Pentru a continua trebuie să te loghezi pe platformă, apasă butonul de mai jos și urmeaza instrucțiunile.</p>
+            <button class="btn-success" id="login-button">
+<!--                <div class="rotator">-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-icon lucide-loader"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg>
+<!--                </div>-->
+                Loghează-te
+            </button>
+        </div>
+
         <!-- Helpers  -->
         <div class="loader-container" id="calendar-loader">
             <span class="loader"></span>
@@ -60,7 +71,7 @@
                 <button class="btn-close" id="close-modal"></button>
             </div>
             <div class="modal-content">
-                <strong>Serviciu:</strong> <span class="modal-service"></span>
+                <strong>Servicii:</strong> <span class="modal-service"></span>
                 <strong>Client:</strong> <span class="modal-client"></span>
                 <strong>Data și ora:</strong> <span class="modal-date"></span>
                 <strong>Telefon:</strong> <span class="modal-phone"></span>
@@ -73,7 +84,7 @@
                 <button class="btn-close" id="close-tg-modal"></button>
             </div>
             <div class="modal-content">
-                <pre id="tg-data"></pre>
+                <pre class="grid-full" id="tg-data"></pre>
             </div>
         </div>
     </main>

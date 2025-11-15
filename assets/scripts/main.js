@@ -1,5 +1,5 @@
 import { initTelegram } from "./telegram.js";
-import { fetchData } from "./api.js";
+import { fetchAppointments, goToLoginPage } from "./api.js";
 
 const modal = document.getElementById("appointment-modal");
 const tgModal = document.getElementById("tg-data-modal");
@@ -7,6 +7,7 @@ const closeModalButton = document.getElementById("close-modal");
 const calendar = document.getElementById("calendar");
 const cellHeight = 60 + 7; // 60px height + 7px border-bottom
 let currentDate = new Date();
+let hideCurrentTimeIndicator = false;
 
 const clientConfig = {
     timeStep: 30, // minutes
@@ -31,6 +32,11 @@ document.getElementById("prev-day-btn").addEventListener("click", (e) => {
 
 document.getElementById("next-day-btn").addEventListener("click", (e) => {
     updateCurrentTimeIndicator(1);
+});
+
+document.getElementById("login-button").addEventListener("click", (e) => {
+    e.target.classList.add('loading');
+    goToLoginPage();
 });
 
 
@@ -68,7 +74,14 @@ async function getCalendarData(filters) {
     loader(true);
     closeModal();
     setTimeout(async () => {
-        const data = await fetchData(filters);
+        const data = await fetchAppointments(filters);
+        if (!Array.isArray(data)) {
+            document.getElementById("calendar").style.display = 'none';
+            document.getElementById("login-form").style.display = 'flex';
+            hideCurrentTimeIndicator = true;
+            loader(false);
+            return;
+        }
         populateCalendar(data);
 
         calendar.scrollTo(0, 0);
@@ -77,7 +90,7 @@ async function getCalendarData(filters) {
 }
 
 function calculateTopOffset() {
-    if (!isEqualNow(currentDate)) {
+    if (!isEqualNow(currentDate) || hideCurrentTimeIndicator) {
         console.log("Not today, skipping time indicator update.");
         return;
     }
@@ -112,6 +125,17 @@ function isEqualNow(date) {
 function populateCalendar(appointments) {
     const calendar = document.getElementById("calendar");
     calendar.innerHTML = "";
+    calendar.style.display = 'flex';
+
+    if (!appointments || appointments.length === 0) {
+        const item = document.createElement("div");
+        item.className = "calendar_no-data";
+        item.textContent = "Nu există programări pentru această dată.";
+        calendar.appendChild(item);
+        hideCurrentTimeIndicator = true;
+        loader(false);
+        return;
+    }
 
     if (isEqualNow(currentDate)) {
         const marker = document.createElement("div");
@@ -120,9 +144,8 @@ function populateCalendar(appointments) {
         calendar.appendChild(marker);
     }
 
-
     appointments.forEach(appointment => {
-        const isActive = appointment.phone && appointment.client;
+        const isActive = appointment.phone && appointment.name;
         const item = document.createElement("div");
         item.className = "calendar_item";
 
@@ -134,12 +157,14 @@ function populateCalendar(appointments) {
         info.className = `info ${isActive ? "active" : ""}`;
 
         const title = document.createElement("h4");
-        title.textContent = appointment.title || appointment.client;
+        title.textContent = appointment?.services?.length > 0
+            ? appointment?.services.map(s => s.name).join(", ")
+            : appointment.name;
 
         const clientInfo = document.createElement("small");
-        clientInfo.textContent = !appointment.title
+        clientInfo.textContent = !appointment.name
             ? appointment.phone
-            : `${appointment.client} / ${appointment.phone}`;
+            : `${appointment.name} / ${appointment.phone}`;
 
         if (isActive) {
             info.appendChild(title);
@@ -152,10 +177,12 @@ function populateCalendar(appointments) {
         // Add click listener to open modal with details
         if (isActive) {
             info.addEventListener('click', () => {
-                modal.querySelector(".modal-service").textContent = appointment.title;
-                modal.querySelector(".modal-client").textContent = appointment.client;
+                modal.querySelector(".modal-service").textContent = appointment?.services?.length > 0
+                    ? appointment.services.map(s => s.name).join(", ")
+                    : "N/A";
+                modal.querySelector(".modal-client").textContent = appointment.name;
                 modal.querySelector(".modal-phone").textContent = appointment.phone;
-                modal.querySelector(".modal-date").textContent = appointment.date;
+                modal.querySelector(".modal-date").textContent = appointment.createdAt;
                 modal.classList.remove("active", "slide-in-bottom");
                 modal.classList.add("slide-in-top", "active");
             });
@@ -165,6 +192,7 @@ function populateCalendar(appointments) {
 }
 
 async function updateCurrentTimeIndicator(value) {
+    hideCurrentTimeIndicator = false;
     currentDate.setDate(currentDate.getDate() + value);
     const today = new Date();
     let dateString = currentDate.toLocaleDateString('ro-RO', { weekday: "long", day: '2-digit', month: "long" });
@@ -185,7 +213,7 @@ async function updateCurrentTimeIndicator(value) {
         }
     }
     document.getElementById("currentTimeDisplay").textContent = capitalise(dateString);
-    await getCalendarData({ isToday: isEqualNow(currentDate) });
+    await getCalendarData(currentDate.toISOString());
 }
 
 function capitalise(str) {

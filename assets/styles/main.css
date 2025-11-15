@@ -39,6 +39,13 @@ h5, h4, small {
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
+
+    transition: background-color .3s ease-in, color .3s ease-in;
+
+    &:hover {
+        background-color: var(--tg-theme-button-text-color, #fff);
+        color: var(--tg-theme-button-color, #216559);
+    }
 }
 
 header {
@@ -169,7 +176,7 @@ header {
         opacity: 0.6;
 
         h4 {
-            max-width: 300px;
+            max-width: 90%;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -208,6 +215,13 @@ header {
     transition: top 0.5s ease-in-out;
 }
 
+.calendar_no-data {
+    color: var(--text-muted);
+    font-size: 16px;
+    text-align: center;
+    margin-top: 2rem;
+}
+
 .modal {
     position: fixed;
     bottom: 0;
@@ -243,6 +257,10 @@ header {
 .modal.active {
     opacity: 1;
     visibility: visible;
+}
+
+.grid-full {
+    grid-column: 1 / -1;
 }
 
 .btn {
@@ -287,4 +305,45 @@ pre {
 
 .cp {
     cursor: pointer;
+}
+
+.login-form {
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 100%;
+    background: black;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    button {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+
+        svg {
+            display: none;
+        }
+    }
+
+    button.loading {
+        opacity: .6;
+
+        svg {
+            display: block;
+            animation: spin 1s linear infinite;
+            transform-origin: center center;
+        }
+    }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
