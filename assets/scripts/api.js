@@ -32,6 +32,7 @@ export async function fetchAppointments(date) {
         });
         return await response.json();
     } catch (error) {
+        document.getElementById("display-error").textContent = error;
         console.error("Error sending data:", error);
     }
     return null;
