@@ -53,6 +53,7 @@ document.getElementById("login-button").addEventListener("click", (e) => {
         let userLogIn = await checkAuth();
         if (userLogIn) {
             clearInterval(intervalId);
+            document.getElementById("login-form").style.display = 'none';
             await updateCurrentTimeIndicator(0);
         }
     }, 10 * 1000);
