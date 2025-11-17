@@ -48,9 +48,13 @@ document.getElementById("next-day-btn").addEventListener("click", (e) => {
 document.getElementById("login-button").addEventListener("click", (e) => {
     e.target.classList.add('loading');
     goToLoginPage();
+    let cnt = 0;
 
     const intervalId = setInterval(async () => {
         let userLogIn = await checkAuth();
+        if (cnt++ > 20) {
+            clearInterval(intervalId);
+        }
         if (userLogIn) {
             clearInterval(intervalId);
             document.getElementById("login-form").style.display = 'none';
