@@ -1,10 +1,11 @@
 import { initTelegram } from "./telegram.js";
-import { fetchAppointments, goToLoginPage } from "./api.js";
+import { checkAuth, fetchAppointments, goToLoginPage } from "./api.js";
 
 const modal = document.getElementById("appointment-modal");
 const tgModal = document.getElementById("tg-data-modal");
 const closeModalButton = document.getElementById("close-modal");
 const calendar = document.getElementById("calendar");
+const loaderElement = document.getElementById("calendar-loader");
 const cellHeight = 60 + 7; // 60px height + 7px border-bottom
 let currentDate = new Date();
 let hideCurrentTimeIndicator = false;
@@ -17,13 +18,23 @@ const clientConfig = {
 
 document.addEventListener("DOMContentLoaded", async () => {
     initTelegram();
-    await updateCurrentTimeIndicator(0);
 
+    let userLogIn = await checkAuth();
+    loaderElement.classList.add('calendars');
     startCalculateTimeOffsetInterval();
 
-    closeModalButton.addEventListener("click", () => {
-        closeModal();
-    });
+    if (!userLogIn) {
+        calendar.style.visibility = 'hidden';
+        document.getElementById("login-form").style.display = 'flex';
+        hideCurrentTimeIndicator = true;
+        loader(false);
+        return;
+    }
+    await updateCurrentTimeIndicator(0);
+});
+
+closeModalButton.addEventListener("click", () => {
+    closeModal();
 });
 
 document.getElementById("prev-day-btn").addEventListener("click", (e) => {
@@ -37,17 +48,20 @@ document.getElementById("next-day-btn").addEventListener("click", (e) => {
 document.getElementById("login-button").addEventListener("click", (e) => {
     e.target.classList.add('loading');
     goToLoginPage();
-});
 
+    const intervalId = setInterval(async () => {
+        let userLogIn = await checkAuth();
+        if (userLogIn) {
+            clearInterval(intervalId);
+            await updateCurrentTimeIndicator(0);
+        }
+    }, 10 * 1000);
+});
 
 //For test
 document.getElementById("settings-link").addEventListener("click", (e) => {
     tgModal.classList.remove("active", "slide-in-bottom");
     tgModal.classList.add("slide-in-top", "active");
-});
-document.getElementById("close-tg-modal").addEventListener("click", (e) => {
-    tgModal.classList.add("slide-in-bottom");
-    tgModal.classList.remove("slide-in-top", "active");
 });
 
 // ==================== METHODS ==============================================
@@ -75,15 +89,6 @@ async function getCalendarData(filters) {
     closeModal();
     setTimeout(async () => {
         const data = await fetchAppointments(filters);
-        if (!Array.isArray(data)) {
-            document.getElementById("calendar").style.display = 'none';
-            document.getElementById("login-form").style.display = 'flex';
-            document.getElementById("display-error").textContent = JSON.stringify(data);
-
-            hideCurrentTimeIndicator = true;
-            loader(false);
-            return;
-        }
         populateCalendar(data);
 
         calendar.scrollTo(0, 0);
@@ -175,6 +180,7 @@ function populateCalendar(appointments) {
         item.appendChild(time);
         item.appendChild(info);
         calendar.appendChild(item);
+        calendar.style.visibility = 'visible';
 
         // Add click listener to open modal with details
         if (isActive) {
@@ -223,7 +229,6 @@ function capitalise(str) {
 }
 
 function loader(show) {
-    const loaderElement = document.getElementById("calendar-loader");
     if (show) {
         loaderElement.style.display = "flex";
     } else {

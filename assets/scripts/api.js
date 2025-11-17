@@ -1,17 +1,18 @@
 const API_URL = "https://api.eppoint.site/telegram";
 
-export async function login(formData) {
+
+export async function checkAuth() {
     try {
-        const response = await fetch(API_URL + "/login", {
-            method: "POST",
+        const response = await fetch(API_URL + "/auth", {
+            method: "GET",
             headers: {
                 "Content-Type": "application/json",
                 "X-AUTH-TELEGRAM": sessionStorage.getItem("telegram_key")
             },
-            body: JSON.stringify(formData),
         });
-        const result = await response.json();
-        if (result.code === 200) {
+
+        console.log(response, response.status)
+        if (response.status === 200) {
             return true;
         }
     } catch (error) {
@@ -29,6 +30,7 @@ export async function fetchAppointments(date) {
                 "X-AUTH-TELEGRAM": sessionStorage.getItem("telegram_key")
             },
         });
+        console.log(response)
         return await response.json();
     } catch (error) {
         console.error("Error sending data:", error);
