@@ -30,9 +30,25 @@ export async function fetchAppointments(date) {
                 "X-AUTH-TELEGRAM": sessionStorage.getItem("telegram_key")
             },
         });
-        console.log(response)
         return await response.json();
     } catch (error) {
+        console.error("Error sending data:", error);
+    }
+    return null;
+}
+
+export async function fetchWorkHour(date) {
+    try {
+        const response = await fetch(`${API_URL}/working-hours?date=${date}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "X-AUTH-TELEGRAM": sessionStorage.getItem("telegram_key")
+            },
+        });
+        return await response.json();
+    } catch (error) {
+        document.getElementById("display-error").textContent = error;
         console.error("Error sending data:", error);
     }
     return null;

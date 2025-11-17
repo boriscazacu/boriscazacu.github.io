@@ -1,5 +1,5 @@
 import { initTelegram } from "./telegram.js";
-import { checkAuth, fetchAppointments, goToLoginPage } from "./api.js";
+import { checkAuth, fetchAppointments, fetchWorkHour, goToLoginPage } from "./api.js";
 
 const modal = document.getElementById("appointment-modal");
 const tgModal = document.getElementById("tg-data-modal");
@@ -22,6 +22,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     let userLogIn = await checkAuth();
     loaderElement.classList.add('calendars');
     startCalculateTimeOffsetInterval();
+
+    fetchWorkHour(currentDate.toISOString()).then(wh => {
+        clientConfig.timeStep = wh.interval;
+        clientConfig.startTimeInMinutes = Number(wh.startTime.split(":")[0]) * 60
+        clientConfig.endTimeInMinutes = Number(wh.endTime.split(":")[0]) * 60
+    });
 
     if (!userLogIn) {
         calendar.style.visibility = 'hidden';
