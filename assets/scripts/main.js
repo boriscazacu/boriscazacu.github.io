@@ -200,10 +200,11 @@ function populateCalendar(appointments) {
                     ? appointment.services.map(s => s.name).join(", ")
                     : "N/A";
                 modal.querySelector(".modal-client").textContent = appointment.name;
-                modal.querySelector(".modal-duration").textContent = appointment.duration;
+                modal.querySelector(".modal-duration").textContent = appointment.duration + " min";
                 modal.querySelector(".modal-phone").textContent = appointment.phone;
                 modal.querySelector(".modal-comments").textContent = appointment.comments;
-                modal.querySelector(".modal-date").textContent = formatDateTime(appointment?.createdAt);
+                modal.querySelector(".modal-date").textContent = formatDateTime(appointment?.startTime);
+                modal.querySelector(".modal-created").textContent = formatDateTime(appointment?.createdAt);
                 modal.classList.remove("active", "slide-in-bottom");
                 modal.classList.add("slide-in-top", "active");
             });
