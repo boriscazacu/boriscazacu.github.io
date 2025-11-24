@@ -200,14 +200,22 @@ function populateCalendar(appointments) {
                     ? appointment.services.map(s => s.name).join(", ")
                     : "N/A";
                 modal.querySelector(".modal-client").textContent = appointment.name;
+                modal.querySelector(".modal-duration").textContent = appointment.duration;
                 modal.querySelector(".modal-phone").textContent = appointment.phone;
-                modal.querySelector(".modal-date").textContent = appointment.createdAt;
+                modal.querySelector(".modal-comments").textContent = appointment.comments;
+                modal.querySelector(".modal-date").textContent = formatDateTime(appointment?.createdAt);
                 modal.classList.remove("active", "slide-in-bottom");
                 modal.classList.add("slide-in-top", "active");
             });
         }
         loader(false);
     });
+}
+
+export function formatDateTime(date) {
+    const parsedDate = new Date(date)
+        .toLocaleDateString("ro-RO", { weekday: "long", day: '2-digit', month: 'long', hour: '2-digit', minute: '2-digit', })
+    return capitalise(parsedDate);
 }
 
 async function updateCurrentTimeIndicator(value) {
