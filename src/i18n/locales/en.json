@@ -1,0 +1,371 @@
+{
+    "nav": {
+        "about": "About",
+        "experience": "Experience",
+        "projects": "Projects",
+        "testimonials": "Testimonials",
+        "contact": "Contact"
+    },
+    "hero": {
+        "greeting": "Hi, I'm",
+        "name": "Boris Cazacu",
+        "title": "Full-Stack Software Developer",
+        "tagline": "I transform complex problems into elegant, scalable solutions. Let's build something amazing together.",
+        "cta": {
+            "projects": "View Projects",
+            "contact": "Get in Touch",
+            "downloadCV": "Download CV"
+        }
+    },
+    "about": {
+        "title": "About Me",
+        "subtitle": "Building the future, one line of code at a time",
+        "description": "I'm a passionate full-stack developer with extensive experience creating robust, user-centric applications. I specialize in Java/Spring ecosystems and modern frontend technologies, delivering scalable solutions that drive business growth.",
+        "experience": {
+            "years": "5+",
+            "label": "Years Experience"
+        },
+        "projects": {
+            "count": "10+",
+            "label": "Work Projects"
+        },
+        "clients": {
+            "count": "6+",
+            "label": "Happy Clients"
+        },
+        "skills": {
+            "title": "Technologies I Work With",
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "tools": "Tools & DevOps",
+            "database": "Databases",
+            "other": "Other skills"
+        },
+        "techStack": {
+            "backend": [
+                "Java 11/17/21",
+                "Spring",
+                "Spring Boot",
+                "Spring Data",
+                "JPA",
+                "Quarkus",
+                "REST API",
+                "JHipster",
+                "Liquibase",
+                "JUnit 5"
+            ],
+            "frontend": [
+                "Angular",
+                "TypeScript",
+                "React",
+                "Thymeleaf",
+                "HTML",
+                "CSS",
+                "SCSS",
+                "JavaScript"
+            ],
+            "tools": [
+                "IntelliJ IDEA",
+                "Claude Code",
+                "RabbitMQ",
+                "ActiveMQ",
+                "Docker",
+                "Kubernetes",
+                "Portainer",
+                "Argo CD",
+                "GitLab",
+                "Helm chart"
+            ],
+            "database": [
+                "PostgreSQL",
+                "MySql",
+                "MariaDB",
+                "SqlLite"
+            ],
+            "other": [
+                "Linux",
+                "Networking",
+                "Bash Scripting",
+                "Phyton Scripting",
+                "C/C++",
+                "Arduino"
+            ]
+        }
+    },
+    "experience": {
+        "title": "Work Experience",
+        "subtitle": "My professional journey and key roles",
+        "team": "Team",
+        "responsibilities": "Responsibilities",
+        "items": [
+            {
+                "company": "CBSOFT",
+                "role": "Full-Stack Developer",
+                "period": "Apr 2024 – Present",
+                "description": "Contributed to the ongoing maintenance and development of existing projects by identifying and resolving defects, optimizing application behavior, and implementing new features aligned with business requirements.",
+                "responsibilities": [
+                    "Participate in the entire application lifecycle",
+                    "Developed backend services using Spring Boot",
+                    "Built and maintained frontend features using React, Thymeleaf",
+                    "Deploy the application to servers and maintain functionality"
+                ],
+                "teamSize": "2",
+                "technologies": [
+                    "Java",
+                    "Spring Boot",
+                    "React",
+                    "PostgreSQL",
+                    "Docker",
+                    "Liquibase",
+                    "JQuery",
+                    "Thymeleaf"
+                ]
+            },
+            {
+                "company": "Stefanini",
+                "role": "Java Developer",
+                "period": "Apr 2024 – Nov 2024",
+                "description": "Maintained and evolved existing applications by diagnosing and fixing bugs, while continuously delivering new features and improvements to enhance performance, scalability, and overall user experience.",
+                "responsibilities": [
+                    "Implemented new features for JavaFX POS applications",
+                    "Fixed bugs and improved application performance and stability",
+                    "Maintained and enhanced JavaFX POS functionality",
+                    "Participate on daily meetings"
+                ],
+                "teamSize": "5",
+                "technologies": [
+                    "Java",
+                    "JavaFX",
+                    "MySQL",
+                    "Liquibase",
+                    "Jenkins",
+                    "AWS",
+                    "Docker"
+                ]
+            },
+            {
+                "company": "Tekoway",
+                "role": "FullStack Software Developer",
+                "period": "Apr 2021 – Apr 2024",
+                "description": "Responsible for maintaining and improving existing software projects, including debugging and resolving reported issues, as well as designing and implementing new features to enhance system performance and usability.",
+                "responsibilities": [
+                    "Developed backend services using Spring Boot",
+                    "Managed and optimized PostgreSQL databases",
+                    "Built and maintained frontend features using Angular",
+                    "Add new features related to task",
+                    "Fix existing bugs and improve application",
+                    "Write unit and integration tests"
+                ],
+                "teamSize": "7",
+                "technologies": [
+                    "Java",
+                    "Spring Boot",
+                    "JHipster",
+                    "RabbitMQ",
+                    "Angular",
+                    "Typescript",
+                    "PostgreSQL",
+                    "GitLab CI",
+                    "Docker",
+                    "Portainer",
+                    "Argo CD",
+                    "Kubernetes"
+                ]
+            },
+            {
+                "company": "Unifun",
+                "role": "FullStack Developer - Java / Angular",
+                "period": "Mai 2020 – Apr 2021",
+                "description": "Maintained and enhanced existing applications by resolving reported issues and implementing new features to improve functionality and user experience.",
+                "responsibilities": [
+                    "Developed backend services using Quarkus",
+                    "Managed and optimized PostgreSQL databases",
+                    "Built and maintained frontend features using Angular",
+                    "Integrated RESTful APIs and ensured secure data communication"
+                ],
+                "teamSize": "4",
+                "technologies": [
+                    "Java 1.8",
+                    "Quarkus",
+                    "REST API",
+                    "MySql",
+                    "Angular",
+                    "Typescript",
+                    "Jenckins",
+                    "Asterisk"
+                ]
+            }
+        ]
+    },
+    "projects": {
+        "title": "Featured Projects",
+        "subtitle": "A selection of my professional work",
+        "viewCode": "View Code",
+        "liveDemo": "Live Demo",
+        "items": [
+            {
+                "title": "Eppoint",
+                "description": "Online platform for booking, managing, and scheduling client services and online appointments.",
+                "technologies": [
+                    "Java",
+                    "Spring Boot",
+                    "React",
+                    "PostgreSQL",
+                    "RabbitMQ",
+                    "Docker"
+                ],
+                "role": "Full-stack Developer",
+                "teamSize": "1"
+            },
+            {
+                "title": "Katzonline",
+                "description": "Marketplace application for selling, buying, and paying for products. Participated in the entire application lifecycle, adding features, fixing bugs, and maintaining server deployments.",
+                "technologies": [
+                    "Java",
+                    "Spring Boot",
+                    "HTML", "JSP",
+                    "JQuery",
+                    "PostgreSQL",
+                    "ActiveMQ"
+                ],
+                "role": "Full-stack Developer",
+                "teamSize": "2"
+            },
+            {
+                "title": "Auchan POS",
+                "description": "POS interface for Auchan market. Participated in the entire application lifecycle, adding new features, fixing bugs, and writing unit tests.",
+                "technologies": [
+                    "Java",
+                    "Spring",
+                    "JUnit 5",
+                    "REST API",
+                    "MySql",
+                    "AWS"
+                ],
+                "role": "Java Developer",
+                "teamSize": "4"
+            },
+            {
+                "title": "Etool",
+                "description": "Java desktop client for uploading, downloading, and deleting documents to server. Updated application to new Java & FX versions.",
+                "technologies": [
+                    "Java",
+                    "JavaFX",
+                    "REST API"
+                ],
+                "role": "Java Developer",
+                "teamSize": "2"
+            },
+            {
+                "title": "Docaposte",
+                "description": "Large multifunctional HR platform for employee management, document signing, and admin manipulation. Implemented new features, fixed bugs, and wrote unit and integration tests.",
+                "technologies": [
+                    "Java",
+                    "Spring Boot",
+                    "JHipster",
+                    "Angular",
+                    "yarn",
+                    "PostgreSQL",
+                    "RabbitMQ",
+                    "GitLab CI",
+                    "Kubernetes",
+                    "Microservices"
+                ],
+                "role": "Full-stack Developer",
+                "teamSize": "7"
+            },
+            {
+                "title": "CNAS",
+                "description": "Platform where admin can create page structures with data, displayed on frontend by URL. Deployed via GitLab CI.",
+                "technologies": [
+                    "Java",
+                    "Spring Boot",
+                    "Angular",
+                    "Docker",
+                    "PostgreSQL"
+                ],
+                "role": "Full-stack Developer",
+                "teamSize": "1"
+            },
+            {
+                "title": "Mediation",
+                "description": "Mediation app for mediators to open mediation cases in France. Built from scratch with new feature implementation.",
+                "technologies": [
+                    "Java",
+                    "Spring Boot",
+                    "Angular",
+                    "Docker",
+                    "PostgreSQL"
+                ],
+                "role": "Full-stack Developer",
+                "teamSize": "2"
+            },
+            {
+                "title": "Wrong IVR",
+                "description": "Application for configuring actions when users call wrong numbers from specific phone operators. Integration with client APIs and response processing.",
+                "technologies": [
+                    "Java",
+                    "Quarkus",
+                    "Angular",
+                    "REST API",
+                    "Docker"
+                ],
+                "role": "Full-stack Developer",
+                "teamSize": "4"
+            }
+        ]
+    },
+    "testimonials": {
+        "title": "Client Testimonials",
+        "subtitle": "What my clients say about working with me",
+        "items": [
+            {
+                "name": "Sarah Johnson",
+                "role": "CEO, TechStart Inc.",
+                "text": "Working with Boris was an absolute pleasure. They delivered our platform ahead of schedule and exceeded all our expectations. The attention to detail and proactive communication made the entire process seamless."
+            },
+            {
+                "name": "Michael Chen",
+                "role": "CTO, DataFlow Solutions",
+                "text": "Boris's technical expertise and problem-solving abilities are exceptional. They transformed our legacy system into a modern, scalable architecture that has significantly improved our operational efficiency."
+            },
+            {
+                "name": "Elena Rodriguez",
+                "role": "Product Manager, InnovateCorp",
+                "text": "I've worked with many developers, but Boris stands out for their ability to understand business requirements and translate them into elegant technical solutions. Highly recommended!"
+            }
+        ]
+    },
+    "contact": {
+        "title": "Let's Work Together",
+        "subtitle": "Have a project in mind? I'd love to hear about it.",
+        "email": "Email",
+        "social": "Connect with me",
+        "form": {
+            "name": "Your Name",
+            "email": "Your Email",
+            "message": "Your Message",
+            "send": "Send Message",
+            "sending": "Sending...",
+            "success": "Message sent successfully!",
+            "error": "Failed to send message. Please try again."
+        }
+    },
+    "footer": {
+        "copyright": "© {{year}} Boris Cazacu. All rights reserved.",
+        "builtWith": "Built with React & Tailwind CSS"
+    },
+    "theme": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+    },
+    "language": {
+        "en": "English",
+        "ro": "Română",
+        "ru": "Русский"
+    },
+    "cv": {
+        "generatedNote": "CV generated from boriscazacu.dev portfolio"
+    }
+}

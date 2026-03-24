@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Portfolio Design System
+   Colors: Sophisticated teal accent with deep slate dark mode
+   All colors in HSL format
+*/
+
+@layer base {
+  :root {
+    /* Core backgrounds */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    /* Cards & surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    /* Popover/dropdown */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary - Vibrant green for trust & growth */
+    --primary: 152 68% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Soft gray */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    /* Muted - For subtle backgrounds */
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent - Light green for highlights */
+    --accent: 152 50% 92%;
+    --accent-foreground: 152 68% 30%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & inputs */
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 152 68% 40%;
+
+    --radius: 0.75rem;
+
+    /* Custom portfolio tokens */
+    --gradient-start: 152 68% 40%;
+    --gradient-end: 160 70% 50%;
+    --hero-gradient: linear-gradient(135deg, hsl(152 68% 40%) 0%, hsl(160 70% 50%) 100%);
+    --glass-bg: 0 0% 100% / 0.8;
+    --glass-border: 0 0% 100% / 0.2;
+    
+    /* Section backgrounds */
+    --section-alt: 150 20% 97%;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 40px -10px hsl(152 68% 40% / 0.3);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 152 68% 40%;
+  }
+
+  .dark {
+    /* Core backgrounds - Softer charcoal gray (not pure black) */
+    --background: 220 15% 16%;
+    --foreground: 210 40% 98%;
+
+    /* Cards & surfaces - Slightly lighter warm gray */
+    --card: 220 13% 20%;
+    --card-foreground: 210 40% 98%;
+
+    /* Popover */
+    --popover: 220 13% 20%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary - Brighter green for dark mode */
+    --primary: 152 72% 48%;
+    --primary-foreground: 220 15% 10%;
+
+    /* Secondary */
+    --secondary: 220 12% 24%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Muted */
+    --muted: 220 12% 24%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent */
+    --accent: 152 40% 20%;
+    --accent-foreground: 152 72% 60%;
+
+    /* Destructive */
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders & inputs */
+    --border: 220 10% 28%;
+    --input: 220 10% 28%;
+    --ring: 152 72% 48%;
+
+    /* Custom dark mode tokens */
+    --gradient-start: 152 72% 42%;
+    --gradient-end: 160 65% 52%;
+    --hero-gradient: linear-gradient(135deg, hsl(152 72% 42%) 0%, hsl(160 65% 52%) 100%);
+    --glass-bg: 220 15% 18% / 0.8;
+    --glass-border: 210 40% 98% / 0.1;
+    
+    /* Section backgrounds */
+    --section-alt: 220 13% 18%;
+
+    /* Shadows - More subtle in dark mode */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+    --shadow-glow: 0 0 60px -10px hsl(152 72% 48% / 0.4);
+
+    /* Sidebar */
+    --sidebar-background: 220 13% 18%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 152 72% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 10% 22%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 220 10% 25%;
+    --sidebar-ring: 152 72% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Glass morphism card */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 shadow-lg;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent-foreground bg-clip-text text-transparent;
+  }
+
+  /* Section wrapper */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Hover card lift effect */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  /* Focus ring for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+}
+
+@layer utilities {
+  /* Fade in animation */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Slide up animation */
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Glow effect */
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Stagger animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}

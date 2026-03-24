@@ -1,0 +1,371 @@
+{
+    "nav": {
+        "about": "Despre",
+        "experience": "Experiență",
+        "projects": "Proiecte",
+        "testimonials": "Testimoniale",
+        "contact": "Contact"
+    },
+    "hero": {
+        "greeting": "Bună, sunt",
+        "name": "Boris Cazacu",
+        "title": "Dezvoltator Software Full-Stack",
+        "tagline": "Transform probleme complexe în soluții elegante și scalabile. Hai să construim ceva extraordinar împreună.",
+        "cta": {
+            "projects": "Vezi Proiecte",
+            "contact": "Contactează-mă",
+            "downloadCV": "Descarcă CV"
+        }
+    },
+    "about": {
+        "title": "Despre Mine",
+        "subtitle": "Construind viitorul, linie cu linie de cod",
+        "description": "Sunt un dezvoltator full-stack pasionat, cu experiență vastă în crearea de aplicații robuste, centrate pe utilizator. Mă specializez în ecosistemul Java/Spring și tehnologii frontend moderne, livrând soluții scalabile care stimulează creșterea afacerilor.",
+        "experience": {
+            "years": "5+",
+            "label": "Ani de Experiență"
+        },
+        "projects": {
+            "count": "7+",
+            "label": "Proiecte Finalizate"
+        },
+        "clients": {
+            "count": "6+",
+            "label": "Clienți Mulțumiți"
+        },
+        "skills": {
+            "title": "Tehnologii cu Care Lucrez",
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "tools": "Instrumente & DevOps",
+            "database": "Baze de date",
+            "other": "Alte skill-uri"
+        },
+        "techStack": {
+            "backend": [
+                "Java 11/17/21",
+                "Spring",
+                "Spring Boot",
+                "Spring Data",
+                "JPA",
+                "Hibernate",
+                "REST API",
+                "JHipster",
+                "Liquibase",
+                "JUnit 5"
+            ],
+            "frontend": [
+                "Angular",
+                "TypeScript",
+                "React",
+                "Thymeleaf",
+                "HTML",
+                "CSS",
+                "SCSS",
+                "JavaScript"
+            ],
+            "tools": [
+                "IntelliJ IDEA",
+                "Claude Code",
+                "RabbitMQ",
+                "ActiveMQ",
+                "Docker",
+                "Kubernetes",
+                "Portainer",
+                "Argo CD",
+                "GitLab",
+                "Helm chart"
+            ],
+            "database": [
+                "PostgreSQL",
+                "MySql",
+                "MariaDB",
+                "SqlLite"
+            ],
+            "other": [
+                "Linux",
+                "Networking",
+                "Bash Scripting",
+                "Phyton Scripting",
+                "C/C++",
+                "Arduino"
+            ]
+        }
+    },
+    "experience": {
+        "title": "Experiență Profesională",
+        "subtitle": "Parcursul meu profesional și rolurile cheie",
+        "team": "Echipă",
+        "responsibilities": "Responsabilități",
+        "items": [
+            {
+                "company": "CBSOFT",
+                "role": "Dezvoltator Full-Stack",
+                "period": "Apr 2024 – Prezent",
+                "description": "Am contribuit la întreținerea și dezvoltarea continuă a proiectelor existente prin identificarea și rezolvarea defectelor, optimizarea comportamentului aplicației și implementarea de noi funcționalități aliniate cerințelor de business.",
+                "responsibilities": [
+                    "Participarea la întregul ciclu de viață al aplicației",
+                    "Dezvoltarea serviciilor backend folosind Spring Boot",
+                    "Crearea și întreținerea funcționalităților frontend folosind React, Thymeleaf",
+                    "Dezvoltarea aplicației pe servere și menținerea funcționalității"
+                ],
+                "teamSize": "2",
+                "technologies": [
+                    "Java",
+                    "Spring Boot",
+                    "React",
+                    "PostgreSQL",
+                    "Docker",
+                    "Liquibase",
+                    "JQuery",
+                    "Thymeleaf"
+                ]
+            },
+            {
+                "company": "Stefanini",
+                "role": "Dezvoltator Java",
+                "period": "Apr 2024 – Nov 2024",
+                "description": "Am întreținut și dezvoltat aplicațiile existente prin diagnosticarea și remedierea bug-urilor, livrând continuu noi funcționalități și îmbunătățiri pentru a crește performanța, scalabilitatea și experiența generală a utilizatorului.",
+                "responsibilities": [
+                    "Am implementat noi funcționalități pentru aplicațiile JavaFX POS",
+                    "Am corectat bug-uri și am îmbunătățit performanța și stabilitatea aplicației",
+                    "Am întreținut și extins funcționalitatea JavaFX POS",
+                    "Participarea la întâlniri zilnice"
+                ],
+                "teamSize": "5",
+                "technologies": [
+                    "Java",
+                    "JavaFX",
+                    "MySQL",
+                    "Liquibase",
+                    "Jenkins",
+                    "AWS",
+                    "Docker"
+                ]
+            },
+            {
+                "company": "Tekoway",
+                "role": "Dezvoltator Software FullStack",
+                "period": "Apr 2021 – Apr 2024",
+                "description": "Responsabil pentru întreținerea și îmbunătățirea proiectelor software existente, inclusiv depanarea și rezolvarea problemelor raportate, precum și proiectarea și implementarea de noi funcționalități pentru a crește performanța și ușurința în utilizare a sistemului.",
+                "responsibilities": [
+                    "Dezvoltarea serviciilor backend folosind Spring Boot",
+                    "Gestionarea și optimizarea bazelor de date PostgreSQL",
+                    "Crearea și întreținerea funcționalităților frontend folosind Angular",
+                    "Adăugarea de noi funcționalități legate de sarcini",
+                    "Remedierea bug-urilor existente și îmbunătățirea aplicației",
+                    "Scrierea de teste unitare și de integrare"
+                ],
+                "teamSize": "7",
+                "technologies": [
+                    "Java",
+                    "Spring Boot",
+                    "JHipster",
+                    "RabbitMQ",
+                    "Angular",
+                    "Typescript",
+                    "PostgreSQL",
+                    "GitLab CI",
+                    "Docker",
+                    "Portainer",
+                    "Argo CD",
+                    "Kubernetes"
+                ]
+            },
+            {
+                "company": "Unifun",
+                "role": "Dezvoltator FullStack - Java / Angular",
+                "period": "Mai 2020 – Apr 2021",
+                "description": "Am întreținut și extins aplicațiile existente prin rezolvarea problemelor raportate și implementarea de noi funcționalități pentru a îmbunătăți funcționalitatea și experiența utilizatorului.",
+                "responsibilities": [
+                    "Dezvoltarea serviciilor backend folosind Quarkus",
+                    "Gestionarea și optimizarea bazelor de date PostgreSQL",
+                    "Crearea și întreținerea funcționalităților frontend folosind Angular",
+                    "Integrarea API-urilor RESTful și asigurarea unei comunicări securizate a datelor"
+                ],
+                "teamSize": "4",
+                "technologies": [
+                    "Java 1.8",
+                    "Quarkus",
+                    "REST API",
+                    "MySql",
+                    "Angular",
+                    "Typescript",
+                    "Jenkins",
+                    "Asterisk"
+                ]
+            }
+        ]    },
+    "projects": {
+        "title": "Proiecte Prezentate",
+        "subtitle": "O selecție din lucrările mele profesionale",
+        "viewCode": "Vezi Codul",
+        "liveDemo": "Demo Live",
+        "items": [
+            {
+                "title": "Eppoint",
+                "description": "Platformă online pentru programarea și gestionarea serviciilor clienților.",
+                "technologies": [
+                    "Java",
+                    "Spring Boot",
+                    "React",
+                    "PostgreSQL",
+                    "RabbitMQ",
+                    "Docker"
+                ],
+                "role": "Dezvoltator Full-Stack",
+                "teamSize": "1"
+            },
+            {
+                "title": "Katzonline",
+                "description": "Aplicație marketplace pentru vânzarea, cumpărarea și plata produselor. Am participat la întregul ciclu de viață al aplicației, adăugând funcționalități, remediind bug-uri și menținând implementările pe server.",
+                "technologies": [
+                    "Java",
+                    "Spring Boot",
+                    "HTML",
+                    "JSP",
+                    "JQuery",
+                    "PostgreSQL",
+                    "ActiveMQ"
+                ],
+                "role": "Dezvoltator Full-Stack",
+                "teamSize": "2"
+            },
+            {
+                "title": "Auchan POS",
+                "description": "Interfață POS pentru magazinul Auchan. Am participat la întregul ciclu de viață al aplicației, adăugând funcționalități noi, remediind bug-uri și scriind teste unitare.",
+                "technologies": [
+                    "Java",
+                    "Spring",
+                    "JUnit 5",
+                    "REST API",
+                    "MySql",
+                    "AWS"
+                ],
+                "role": "Dezvoltator Java",
+                "teamSize": "4"
+            },
+            {
+                "title": "Etool",
+                "description": "Client desktop Java pentru încărcarea, descărcarea și ștergerea documentelor pe server. Am actualizat aplicația la noile versiuni Java și FX.",
+                "technologies": [
+                    "Java",
+                    "JavaFX",
+                    "REST API"
+                ],
+                "role": "Dezvoltator Java",
+                "teamSize": "2"
+            },
+            {
+                "title": "Docaposte",
+                "description": "Platformă HR mare și multifuncțională pentru gestionarea angajaților, semnarea documentelor și manipularea administrativă. Am implementat funcționalități noi, remediat bug-uri și scris teste unitare și de integrare.",
+                "technologies": [
+                    "Java",
+                    "Spring Boot",
+                    "JHipster",
+                    "Angular",
+                    "yarn",
+                    "PostgreSQL",
+                    "RabbitMQ",
+                    "GitLab CI",
+                    "Kubernetes",
+                    "Microservices"
+                ],
+                "role": "Dezvoltator Full-Stack",
+                "teamSize": "7"
+            },
+            {
+                "title": "CNAS",
+                "description": "Platformă unde administratorul poate crea structuri de pagini cu date, afișate pe frontend prin URL. Implementată prin GitLab CI.",
+                "technologies": [
+                    "Java",
+                    "Spring Boot",
+                    "Angular",
+                    "Docker",
+                    "PostgreSQL"
+                ],
+                "role": "Dezvoltator Full-Stack",
+                "teamSize": "1"
+            },
+            {
+                "title": "Mediation",
+                "description": "Aplicație de mediere pentru mediatori pentru a deschide cazuri de mediere în Franța. Creată de la zero cu implementarea de funcționalități noi.",
+                "technologies": [
+                    "Java",
+                    "Spring Boot",
+                    "Angular",
+                    "Docker",
+                    "PostgreSQL"
+                ],
+                "role": "Dezvoltator Full-Stack",
+                "teamSize": "2"
+            },
+            {
+                "title": "Wrong IVR",
+                "description": "Aplicație pentru configurarea acțiunilor atunci când utilizatorii apelează numere greșite de la anumiți operatori telefonici. Integrare cu API-urile clientului și procesarea răspunsurilor.",
+                "technologies": [
+                    "Java",
+                    "Quarkus",
+                    "Angular",
+                    "REST API",
+                    "Docker"
+                ],
+                "role": "Dezvoltator Full-Stack",
+                "teamSize": "4"
+            }
+        ]
+    },
+    "testimonials": {
+        "title": "Testimoniale Clienți",
+        "subtitle": "Ce spun clienții mei despre colaborarea cu mine",
+        "items": [
+            {
+                "name": "Sarah Johnson",
+                "role": "CEO, TechStart Inc.",
+                "text": "Lucrul cu Boris a fost o plăcere absolută. Au livrat platforma noastră înainte de termen și au depășit toate așteptările noastre."
+            },
+            {
+                "name": "Michael Chen",
+                "role": "CTO, DataFlow Solutions",
+                "text": "Expertiza tehnică și abilitățile de rezolvare a problemelor ale lui Boris sunt excepționale."
+            },
+            {
+                "name": "Elena Rodriguez",
+                "role": "Manager de Produs, InnovateCorp",
+                "text": "Boris se remarcă prin capacitatea de a înțelege cerințele de afaceri și de a le transforma în soluții tehnice elegante. Foarte recomandat!"
+            }
+        ]
+    },
+    "contact": {
+        "title": "Hai să Lucrăm Împreună",
+        "subtitle": "Ai un proiect în minte? Mi-ar plăcea să aud despre el.",
+        "email": "Email",
+        "social": "Conectează-te cu mine",
+        "form": {
+            "name": "Numele Tău",
+            "email": "Email-ul Tău",
+            "message": "Mesajul Tău",
+            "send": "Trimite Mesaj",
+            "sending": "Se trimite...",
+            "success": "Mesaj trimis cu succes!",
+            "error": "Trimiterea mesajului a eșuat. Te rog încearcă din nou."
+        }
+    },
+    "footer": {
+        "copyright": "© {{year}} Boris Cazacu. Toate drepturile rezervate.",
+        "builtWith": "Construit cu React & Tailwind CSS"
+    },
+    "theme": {
+        "light": "Luminos",
+        "dark": "Întunecat",
+        "system": "Sistem"
+    },
+    "language": {
+        "en": "English",
+        "ro": "Română",
+        "ru": "Русский"
+    },
+    "cv": {
+        "generatedNote": "CV generat de pe portofoliul boriscazacu.dev"
+    }
+}
