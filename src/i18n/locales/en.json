@@ -33,6 +33,33 @@
             "count": "6+",
             "label": "Happy Clients"
         },
+        "education": {
+            "title": "Education",
+            "items": [
+                {
+                    "degree": "Bachelor's in Computer Science",
+                    "school": "Technical University of Moldova",
+                    "year": "2016 - 2020"
+                }
+            ]
+        },
+        "languages": {
+            "title": "Languages",
+            "items": [
+                {
+                    "name": "Romanian",
+                    "level": "Native"
+                },
+                {
+                    "name": "Russian",
+                    "level": "Advanced"
+                },
+                {
+                    "name": "English",
+                    "level": "Professional / Intermediate"
+                }
+            ]
+        },
         "skills": {
             "title": "Technologies I Work With",
             "frontend": "Frontend",

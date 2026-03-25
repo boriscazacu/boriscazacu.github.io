@@ -33,6 +33,33 @@
             "count": "6+",
             "label": "Clienți Mulțumiți"
         },
+        "education": {
+            "title": "Educație",
+            "items": [
+                {
+                    "degree": "Licență în Informatică",
+                    "school": "Universitatea Tehnică a Moldovei",
+                    "year": "2016 - 2020"
+                }
+            ]
+        },
+        "languages": {
+            "title": "Limbi Străine",
+            "items": [
+                {
+                    "name": "Română",
+                    "level": "Nativ"
+                },
+                {
+                    "name": "Rusă",
+                    "level": "Avansat"
+                },
+                {
+                    "name": "Engleză",
+                    "level": "Profesional / Intermediar"
+                }
+            ]
+        },
         "skills": {
             "title": "Tehnologii cu Care Lucrez",
             "frontend": "Frontend",

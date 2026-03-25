@@ -9,6 +9,14 @@ export function About() {
         database: string[];
         other: string[];
     };
+    const education = t('about.education', {returnObjects: true}) as {
+        title: string;
+        items: {degree: string; school: string; year: string}[];
+    };
+    const languages = t('about.languages', {returnObjects: true}) as {
+        title: string;
+        items: {name: string; level: string}[];
+    };
 
     function parseExperienceYears() {
         const startMonth = 4;
@@ -31,9 +39,9 @@ export function About() {
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                    {/* Left: Bio and Stats */}
-                    <div>
-                        <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
+                    {/* Left: Bio, Stats, Education, Languages */}
+                    <div className="space-y-8">
+                        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                             {t('about.description')}
                         </p>
 
@@ -62,6 +70,53 @@ export function About() {
                                 <div className="text-sm text-muted-foreground">
                                     {t('about.clients.label')}
                                 </div>
+                            </div>
+                        </div>
+
+                        {/* Education */}
+                        <div>
+                            <h3 className="text-lg font-semibold text-foreground mb-4">
+                                {education.title}
+                            </h3>
+                            <div className="space-y-4">
+                                {education.items.map((edu, index) => (
+                                    <div
+                                        key={index}
+                                        className="p-4 rounded-lg bg-card border border-border"
+                                    >
+                                        <div className="text-base font-medium text-foreground mb-1">
+                                            {edu.degree}
+                                        </div>
+                                        <div className="text-sm text-muted-foreground">
+                                            {edu.school}
+                                        </div>
+                                        <div className="text-xs text-muted-foreground mt-2">
+                                            {edu.year}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Languages */}
+                        <div>
+                            <h3 className="text-lg font-semibold text-foreground mb-4">
+                                {languages.title}
+                            </h3>
+                            <div className="space-y-3">
+                                {languages.items.map((lang, index) => (
+                                    <div
+                                        key={index}
+                                        className="flex justify-between items-center p-3 rounded-lg bg-card border border-border"
+                                    >
+                                        <span className="text-base font-medium text-foreground">
+                                            {lang.name}
+                                        </span>
+                                        <span className="text-sm text-muted-foreground px-3 py-1 bg-secondary rounded-full">
+                                            {lang.level}
+                                        </span>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
