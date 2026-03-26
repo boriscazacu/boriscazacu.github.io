@@ -59,7 +59,7 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium border-border hover:bg-accent w-full sm:w-auto"
+              className="px-6 sm:px-8 py-5 sm:py-6 sm:text-base text-base font-medium border-primary/30 text-primary hover:bg-primary/10 w-full sm:w-auto"
               asChild
             >
               <a href="#contact">
