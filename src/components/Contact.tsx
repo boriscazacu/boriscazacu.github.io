@@ -75,37 +75,37 @@ export function Contact() {
     };
 
     return (
-        <section id="contact" className="py-20 md:py-32">
+        <section id="contact" className="py-16 sm:py-20 md:py-32">
             <div className="section-container">
                 <div className="max-w-4xl mx-auto">
                     {/* Header */}
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                    <div className="text-center mb-12 sm:mb-16">
+                        <h2 className="text-2xl xs:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
                             {t('contact.title')}
                         </h2>
-                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
                             {t('contact.subtitle')}
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
+                    <div className="grid md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
                         {/* Contact Info */}
                         <div>
                             {/* Email */}
-                            <div className="mb-8">
-                                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">
+                            <div className="mb-6 sm:mb-8">
+                                <h3 className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">
                                     {t('contact.email')}
                                 </h3>
-                                <div className="flex items-center gap-3">
-                                    <div className="inline-flex items-center gap-2 text-lg text-foreground">
-                                        <Mail className="h-5 w-5"/>
-                                        <span className="font-mono">boris*****2@g***.com</span>
+                                <div className="flex items-center gap-2 sm:gap-3">
+                                    <div className="inline-flex items-center gap-2 text-base sm:text-lg text-foreground">
+                                        <Mail className="h-4 w-4 sm:h-5 sm:w-5"/>
+                                        <span className="font-mono text-sm sm:text-base">boris*****2@g***.com</span>
                                     </div>
                                     <Button
                                         variant="outline"
                                         size="icon"
                                         onClick={handleCopyEmail}
-                                        className="h-9 w-9 shrink-0"
+                                        className="h-10 w-10 sm:h-9 sm:w-9 shrink-0"
                                         title="Copy email"
                                     >
                                         {copied ? (
@@ -119,17 +119,17 @@ export function Contact() {
 
                             {/* Social Links */}
                             <div>
-                                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
+                                <h3 className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3 sm:mb-4">
                                     {t('contact.social')}
                                 </h3>
-                                <div className="flex gap-3">
+                                <div className="flex gap-2 sm:gap-3 flex-wrap">
                                     {socialLinks.map((social) => (
                                         <a
                                             key={social.label}
                                             href={social.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="w-12 h-12 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                                            className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
                                             aria-label={social.label}
                                         >
                                             <social.icon className="h-5 w-5"/>
@@ -140,7 +140,7 @@ export function Contact() {
                         </div>
 
                         {/* Contact Form */}
-                        <form onSubmit={handleSubmit} className="space-y-5">
+                        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                             {/* Honeypot field for spam protection */}
                             <input
                                 type="text"
@@ -170,7 +170,7 @@ export function Contact() {
                                     name="name"
                                     placeholder={t('contact.form.name')}
                                     required
-                                    className="bg-muted/50 border-border focus:border-primary"
+                                    className="bg-muted/50 border-border focus:border-primary h-11 sm:h-10 text-sm sm:text-base"
                                 />
                             </div>
                             <div>
@@ -179,7 +179,7 @@ export function Contact() {
                                     name="email"
                                     placeholder={t('contact.form.email')}
                                     required
-                                    className="bg-muted/50 border-border focus:border-primary"
+                                    className="bg-muted/50 border-border focus:border-primary h-11 sm:h-10 text-sm sm:text-base"
                                 />
                             </div>
                             <div>
@@ -188,13 +188,13 @@ export function Contact() {
                                     placeholder={t('contact.form.message')}
                                     required
                                     rows={5}
-                                    className="bg-muted/50 border-border focus:border-primary resize-none"
+                                    className="bg-muted/50 border-border focus:border-primary resize-none text-sm sm:text-base"
                                 />
                             </div>
                             <Button
                                 type="submit"
                                 size="lg"
-                                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-11 sm:h-10 text-sm sm:text-base font-medium"
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting ? (

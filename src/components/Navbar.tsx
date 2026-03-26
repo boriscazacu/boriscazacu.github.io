@@ -53,17 +53,17 @@ export function Navbar() {
       }`}
     >
       <div className="section-container">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-16 sm:h-16 md:h-20">
           {/* Logo */}
           <a
             href="#"
-            className="text-xl font-bold text-foreground hover:text-primary transition-colors"
+            className="text-lg sm:text-xl font-bold text-foreground hover:text-primary transition-colors"
           >
             BC<span className="text-primary">.</span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.key}
@@ -76,7 +76,7 @@ export function Navbar() {
           </div>
 
           {/* Controls */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             {/* Language Switcher */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -155,13 +155,13 @@ export function Navbar() {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-border animate-fade-in">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <a
                   key={link.key}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 px-2 rounded-lg hover:bg-accent/50"
                 >
                   {t(`nav.${link.key}`)}
                 </a>

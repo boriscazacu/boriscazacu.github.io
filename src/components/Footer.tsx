@@ -5,10 +5,10 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-8 border-t border-border">
+    <footer className="py-6 sm:py-8 border-t border-border">
       <div className="section-container">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-          <p className="text-sm text-muted-foreground">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-3 sm:gap-4">
+          <p className="text-xs sm:text-sm text-muted-foreground text-center px-4">
            {t('footer.copyright', {year: currentYear})}
           </p>
         </div>

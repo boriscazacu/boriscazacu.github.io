@@ -154,6 +154,11 @@
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+
+  /* Ensure touch targets are at least 44px for mobile */
+  button, a {
+    min-height: 44px;
+  }
 }
 
 @layer components {
