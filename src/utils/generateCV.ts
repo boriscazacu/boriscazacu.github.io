@@ -440,4 +440,5 @@ export function generateCV() {
 
     // Save the PDF
     doc.save('Boris_Cazacu_CV.pdf');
+    // window.open(doc.output('bloburl'), '_blank');
 }

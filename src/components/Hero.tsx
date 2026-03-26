@@ -66,17 +66,6 @@ export function Hero() {
                 {t('hero.cta.contact')}
               </a>
             </Button>
-            {/*<Button*/}
-            {/*  size="lg"*/}
-            {/*  variant="outline"*/}
-            {/*  className="px-8 py-6 text-base font-medium border-primary/30 text-primary hover:bg-primary/10"*/}
-            {/*  onClick={() => {*/}
-            {/*    import('@/utils/generateCV').then(({ generateCV }) => generateCV());*/}
-            {/*  }}*/}
-            {/*>*/}
-            {/*  <Download className="mr-2 h-4 w-4" />*/}
-            {/*  {t('hero.cta.downloadCV')}*/}
-            {/*</Button>*/}
           </div>
         </div>
 
