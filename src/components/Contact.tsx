@@ -6,6 +6,7 @@ import {Input} from '@/components/ui/input';
 import {Textarea} from '@/components/ui/textarea';
 import {useToast} from '@/hooks/use-toast';
 import {sendContactForm, type ContactFormData} from '@/services/contactService';
+import {AnimateOnScroll} from '@/components/AnimateOnScroll';
 
 const socialLinks = [
     {icon: Github, href: 'https://github.com/boriscazacu', label: 'GitHub'},
@@ -80,133 +81,141 @@ export function Contact() {
                 <div className="max-w-4xl mx-auto">
                     {/* Header */}
                     <div className="text-center mb-12 sm:mb-16">
-                        <h2 className="text-2xl xs:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
-                            {t('contact.title')}
-                        </h2>
-                        <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-                            {t('contact.subtitle')}
-                        </p>
+                        <AnimateOnScroll delay="0.1s">
+                            <h2 className="text-2xl xs:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
+                                {t('contact.title')}
+                            </h2>
+                        </AnimateOnScroll>
+                        <AnimateOnScroll delay="0.2s">
+                            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
+                                {t('contact.subtitle')}
+                            </p>
+                        </AnimateOnScroll>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
                         {/* Contact Info */}
-                        <div>
-                            {/* Email */}
-                            <div className="mb-6 sm:mb-8">
-                                <h3 className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">
-                                    {t('contact.email')}
-                                </h3>
-                                <div className="flex items-center gap-2 sm:gap-3">
-                                    <div className="inline-flex items-center gap-2 text-base sm:text-lg text-foreground">
-                                        <Mail className="h-4 w-4 sm:h-5 sm:w-5"/>
-                                        <span className="font-mono text-sm sm:text-base">boris*****2@g***.com</span>
-                                    </div>
-                                    <Button
-                                        variant="outline"
-                                        size="icon"
-                                        onClick={handleCopyEmail}
-                                        className="h-10 w-10 sm:h-9 sm:w-9 shrink-0"
-                                        title="Copy email"
-                                    >
-                                        {copied ? (
-                                            <Check className="h-4 w-4 text-green-600"/>
-                                        ) : (
-                                            <Copy className="h-4 w-4"/>
-                                        )}
-                                    </Button>
-                                </div>
-                            </div>
-
-                            {/* Social Links */}
+                        <AnimateOnScroll delay="0.3s">
                             <div>
-                                <h3 className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3 sm:mb-4">
-                                    {t('contact.social')}
-                                </h3>
-                                <div className="flex gap-2 sm:gap-3 flex-wrap">
-                                    {socialLinks.map((social) => (
-                                        <a
-                                            key={social.label}
-                                            href={social.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                                            aria-label={social.label}
+                                {/* Email */}
+                                <div className="mb-6 sm:mb-8">
+                                    <h3 className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">
+                                        {t('contact.email')}
+                                    </h3>
+                                    <div className="flex items-center gap-2 sm:gap-3">
+                                        <div className="inline-flex items-center gap-2 text-base sm:text-lg text-foreground">
+                                            <Mail className="h-4 w-4 sm:h-5 sm:w-5"/>
+                                            <span className="font-mono text-sm sm:text-base">boris*****2@g***.com</span>
+                                        </div>
+                                        <Button
+                                            variant="outline"
+                                            size="icon"
+                                            onClick={handleCopyEmail}
+                                            className="h-10 w-10 sm:h-9 sm:w-9 shrink-0"
+                                            title="Copy email"
                                         >
-                                            <social.icon className="h-5 w-5"/>
-                                        </a>
-                                    ))}
+                                            {copied ? (
+                                                <Check className="h-4 w-4 text-green-600"/>
+                                            ) : (
+                                                <Copy className="h-4 w-4"/>
+                                            )}
+                                        </Button>
+                                    </div>
+                                </div>
+
+                                {/* Social Links */}
+                                <div>
+                                    <h3 className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3 sm:mb-4">
+                                        {t('contact.social')}
+                                    </h3>
+                                    <div className="flex gap-2 sm:gap-3 flex-wrap">
+                                        {socialLinks.map((social) => (
+                                            <a
+                                                key={social.label}
+                                                href={social.href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                                                aria-label={social.label}
+                                            >
+                                                <social.icon className="h-5 w-5"/>
+                                            </a>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </AnimateOnScroll>
 
                         {/* Contact Form */}
-                        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                            {/* Honeypot field for spam protection */}
-                            <input
-                                type="text"
-                                name="_honey"
-                                style={{display: 'none'}}
-                                tabIndex={-1}
-                                autoComplete="off"
-                            />
-
-                            {/* Disable captcha for better UX */}
-                            <input
-                                type="hidden"
-                                name="_captcha"
-                                value="false"
-                            />
-
-                            {/* Success page redirect (optional, stays on same page) */}
-                            <input
-                                type="hidden"
-                                name="_next"
-                                value=""
-                            />
-
-                            <div>
-                                <Input
+                        <AnimateOnScroll delay="0.4s">
+                            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                                {/* Honeypot field for spam protection */}
+                                <input
                                     type="text"
-                                    name="name"
-                                    placeholder={t('contact.form.name')}
-                                    required
-                                    className="bg-muted/50 border-border focus:border-primary h-11 sm:h-10 text-sm sm:text-base"
+                                    name="_honey"
+                                    style={{display: 'none'}}
+                                    tabIndex={-1}
+                                    autoComplete="off"
                                 />
-                            </div>
-                            <div>
-                                <Input
-                                    type="email"
-                                    name="email"
-                                    placeholder={t('contact.form.email')}
-                                    required
-                                    className="bg-muted/50 border-border focus:border-primary h-11 sm:h-10 text-sm sm:text-base"
+
+                                {/* Disable captcha for better UX */}
+                                <input
+                                    type="hidden"
+                                    name="_captcha"
+                                    value="false"
                                 />
-                            </div>
-                            <div>
-                                <Textarea
-                                    name="message"
-                                    placeholder={t('contact.form.message')}
-                                    required
-                                    rows={5}
-                                    className="bg-muted/50 border-border focus:border-primary resize-none text-sm sm:text-base"
+
+                                {/* Success page redirect (optional, stays on same page) */}
+                                <input
+                                    type="hidden"
+                                    name="_next"
+                                    value=""
                                 />
-                            </div>
-                            <Button
-                                type="submit"
-                                size="lg"
-                                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-11 sm:h-10 text-sm sm:text-base font-medium"
-                                disabled={isSubmitting}
-                            >
-                                {isSubmitting ? (
-                                    t('contact.form.sending')
-                                ) : (
-                                    <>
-                                        {t('contact.form.send')}
-                                        <Send className="ml-2 h-4 w-4"/>
-                                    </>
-                                )}
-                            </Button>
-                        </form>
+
+                                <div>
+                                    <Input
+                                        type="text"
+                                        name="name"
+                                        placeholder={t('contact.form.name')}
+                                        required
+                                        className="bg-muted/50 border-border focus:border-primary h-11 sm:h-10 text-sm sm:text-base"
+                                    />
+                                </div>
+                                <div>
+                                    <Input
+                                        type="email"
+                                        name="email"
+                                        placeholder={t('contact.form.email')}
+                                        required
+                                        className="bg-muted/50 border-border focus:border-primary h-11 sm:h-10 text-sm sm:text-base"
+                                    />
+                                </div>
+                                <div>
+                                    <Textarea
+                                        name="message"
+                                        placeholder={t('contact.form.message')}
+                                        required
+                                        rows={5}
+                                        className="bg-muted/50 border-border focus:border-primary resize-none text-sm sm:text-base"
+                                    />
+                                </div>
+                                <Button
+                                    type="submit"
+                                    size="lg"
+                                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-11 sm:h-10 text-sm sm:text-base font-medium"
+                                    disabled={isSubmitting}
+                                >
+                                    {isSubmitting ? (
+                                        t('contact.form.sending')
+                                    ) : (
+                                        <>
+                                            {t('contact.form.send')}
+                                            <Send className="ml-2 h-4 w-4"/>
+                                        </>
+                                    )}
+                                </Button>
+                            </form>
+                        </AnimateOnScroll>
                     </div>
                 </div>
             </div>

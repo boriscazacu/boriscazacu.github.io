@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { ArrowDown, ArrowRight, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 
 export function Hero() {
   const { t } = useTranslation();
@@ -25,48 +26,58 @@ export function Hero() {
       <div className="section-container relative z-10 pt-12 sm:pt-8">
         <div className="max-w-4xl mx-auto text-center">
           {/* Greeting */}
-          <p className="text-xs sm:text-sm md:text-base font-medium text-primary mb-3 sm:mb-4 animate-fade-in opacity-0" style={{ animationDelay: '0.1s' }}>
-            {t('hero.greeting')}
-          </p>
+          <AnimateOnScroll delay="0.1s" triggerOnce={false}>
+            <p className="text-xs sm:text-sm md:text-base font-medium text-primary mb-3 sm:mb-4">
+              {t('hero.greeting')}
+            </p>
+          </AnimateOnScroll>
 
           {/* Name */}
-          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-3 sm:mb-4 animate-fade-in opacity-0" style={{ animationDelay: '0.2s' }}>
-            {t('hero.name')}
-          </h1>
+          <AnimateOnScroll delay="0.2s" triggerOnce={false}>
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-3 sm:mb-4">
+              {t('hero.name')}
+            </h1>
+          </AnimateOnScroll>
 
           {/* Title */}
-          <h2 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-medium text-muted-foreground mb-4 sm:mb-6 animate-fade-in opacity-0" style={{ animationDelay: '0.3s' }}>
-            {t('hero.title')}
-          </h2>
+          <AnimateOnScroll delay="0.3s" triggerOnce={false}>
+            <h2 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-medium text-muted-foreground mb-4 sm:mb-6">
+              {t('hero.title')}
+            </h2>
+          </AnimateOnScroll>
 
           {/* Tagline */}
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10 animate-fade-in opacity-0" style={{ animationDelay: '0.4s' }}>
-            {t('hero.tagline')}
-          </p>
+          <AnimateOnScroll delay="0.4s" triggerOnce={false}>
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10">
+              {t('hero.tagline')}
+            </p>
+          </AnimateOnScroll>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-fade-in opacity-0" style={{ animationDelay: '0.5s' }}>
-            <Button
-              size="lg"
-              className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium shadow-glow w-full sm:w-auto"
-              asChild
-            >
-              <a href="#projects">
-                {t('hero.cta.projects')}
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="px-6 sm:px-8 py-5 sm:py-6 sm:text-base text-base font-medium border-primary/30 text-primary hover:bg-primary/10 w-full sm:w-auto"
-              asChild
-            >
-              <a href="#contact">
-                {t('hero.cta.contact')}
-              </a>
-            </Button>
-          </div>
+          <AnimateOnScroll delay="0.5s" triggerOnce={false}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
+              <Button
+                size="lg"
+                className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium shadow-glow w-full sm:w-auto"
+                asChild
+              >
+                <a href="#projects">
+                  {t('hero.cta.projects')}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="px-6 sm:px-8 py-5 sm:py-6 sm:text-base text-base font-medium border-primary/30 text-primary hover:bg-primary/10 w-full sm:w-auto"
+                asChild
+              >
+                <a href="#contact">
+                  {t('hero.cta.contact')}
+                </a>
+              </Button>
+            </div>
+          </AnimateOnScroll>
         </div>
 
         {/* Scroll indicator */}
