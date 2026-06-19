@@ -16,6 +16,7 @@ const navLinks = [
   { key: 'projects', href: '#projects' },
   { key: 'testimonials', href: '#testimonials' },
   { key: 'contact', href: '#contact' },
+  { key: 'pdf', href: '/pdf-generation', hidden: true },
 ];
 
 const languages = [
@@ -68,7 +69,7 @@ export function Navbar() {
               <a
                 key={link.key}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className={"text-sm font-medium text-muted-foreground hover:text-foreground transition-colors " + (!link.hidden ? '' : 'hidden')}
               >
                 {t(`nav.${link.key}`)}
               </a>

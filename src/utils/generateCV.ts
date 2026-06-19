@@ -19,9 +19,24 @@ interface ProjectItem {
     teamSize: string;
 }
 
-export function generateCV() {
+const arrayBufferToBase64 = (buffer) => {
+    let binary = "";
+    const bytes = new Uint8Array(buffer);
+
+    bytes.forEach((b) => (binary += String.fromCharCode(b)));
+    return btoa(binary);
+};
+
+export async function generateCV() {
     const t = i18n.t.bind(i18n);
     const doc = new jsPDF('p', 'mm', 'a4');
+
+    const fontBuffer = await fetch("/fonts/DejaVuSans.ttf")
+        .then((res) => res.arrayBuffer());
+
+    const fontBase64 = arrayBufferToBase64(fontBuffer);
+    doc.addFileToVFS("DejaVuSans.ttf", fontBase64);
+    doc.addFont("DejaVuSans.ttf", "DejaVu", "normal");
 
     // Page dimensions
     const pageWidth = 210;
@@ -77,7 +92,7 @@ export function generateCV() {
         const sidebarContentWidth = sidebarWidth - sidebarPadding * 2;
         
         // Professional Description in sidebar
-        doc.setFont('helvetica', 'italic');
+        doc.setFont('DejaVu', 'italic');
         doc.setFontSize(8);
         doc.setTextColor(colors.primary.r, colors.primary.g, colors.primary.b);
         const sidebarDesc = doc.splitTextToSize('Passionate developer creating innovative solutions', sidebarContentWidth);
@@ -106,7 +121,7 @@ export function generateCV() {
         ];
         
         techCategories.forEach(cat => {
-            doc.setFont('helvetica', 'bold');
+            doc.setFont('DejaVu', 'bold');
             doc.setFontSize(9);
             doc.setTextColor(colors.primary.r, colors.primary.g, colors.primary.b);
             doc.text(cat.label, marginLeft + sidebarPadding, sidebarY);
@@ -143,29 +158,29 @@ export function generateCV() {
         sidebarY += 8;
         
         // Languages
-        doc.setFont('helvetica', 'bold');
+        doc.setFont('DejaVu', 'bold');
         doc.setFontSize(9);
         doc.setTextColor(colors.primary.r, colors.primary.g, colors.primary.b);
         doc.text('LANGUAGES', marginLeft + sidebarPadding, sidebarY);
         sidebarY += 6;
         
         const languagesData = t('about.languages', { returnObjects: true }) as { title: string; items: { name: string; level: string }[] };
-        doc.setFont('helvetica', 'normal');
+        doc.setFont('DejaVu', 'normal');
         doc.setFontSize(8);
         doc.setTextColor(colors.mediumGray.r, colors.mediumGray.g, colors.mediumGray.b);
         languagesData.items.forEach(lang => {
             const langText = doc.splitTextToSize(lang.name, sidebarContentWidth - 15);
             doc.text(langText, marginLeft + sidebarPadding, sidebarY);
-            doc.setFont('helvetica', 'italic');
+            doc.setFont('DejaVu', 'italic');
             const levelText = doc.splitTextToSize(lang.level, 20);
             doc.text(levelText, marginLeft + sidebarWidth - 18, sidebarY, { align: 'right' });
-            doc.setFont('helvetica', 'normal');
+            doc.setFont('DejaVu', 'normal');
             sidebarY += Math.max(langText.length, levelText.length) * 4;
         });
         sidebarY += 8;
         
         // Education
-        doc.setFont('helvetica', 'bold');
+        doc.setFont('DejaVu', 'bold');
         doc.setFontSize(9);
         doc.setTextColor(colors.primary.r, colors.primary.g, colors.primary.b);
         doc.text('EDUCATION', marginLeft + sidebarPadding, sidebarY);
@@ -176,14 +191,14 @@ export function generateCV() {
             items: { degree: string; school: string; year: string }[];
         };
         education.items.forEach(edu => {
-            doc.setFont('helvetica', 'normal');
+            doc.setFont('DejaVu', 'normal');
             doc.setFontSize(8);
             doc.setTextColor(colors.mediumGray.r, colors.mediumGray.g, colors.mediumGray.b);
             const degreeLines = doc.splitTextToSize(edu.degree, sidebarContentWidth);
             doc.text(degreeLines, marginLeft + sidebarPadding, sidebarY);
             sidebarY += degreeLines.length * 4;
             
-            doc.setFont('helvetica', 'italic');
+            doc.setFont('DejaVu', 'italic');
             doc.setFontSize(7);
             const schoolLines = doc.splitTextToSize(edu.school, sidebarContentWidth);
             doc.text(schoolLines, marginLeft + sidebarPadding, sidebarY);
@@ -203,7 +218,7 @@ export function generateCV() {
 
 
         // Section title
-        doc.setFont('helvetica', 'bold');
+        doc.setFont('DejaVu', 'bold');
         doc.setFontSize(11);
         doc.setTextColor(colors.primary.r, colors.primary.g, colors.primary.b);
         doc.text(title.toUpperCase(), x, yPos);
@@ -220,7 +235,7 @@ export function generateCV() {
     }
 
     function drawBulletPoint(text: string, size: number, color: typeof colors.dark, x: number, maxWidth: number) {
-        doc.setFont('helvetica', 'normal');
+        doc.setFont('DejaVu', 'normal');
         doc.setFontSize(size);
         doc.setTextColor(color.r, color.g, color.b);
         const lines = doc.splitTextToSize(text, maxWidth - 5);
@@ -239,7 +254,7 @@ export function generateCV() {
 
     function drawSkillTag(skill: string, x: number, y: number, maxWidth: number) {
         const padding = 2;
-        doc.setFont('helvetica', 'normal');
+        doc.setFont('DejaVu', 'normal');
         doc.setFontSize(7);
         const skillWidth = doc.getTextWidth(skill) + padding * 2;
 
@@ -266,18 +281,18 @@ export function generateCV() {
     doc.rect(0, 0, pageWidth, 35, 'F');
 
     // Name (large, white)
-    doc.setFont('helvetica', 'bold');
+    doc.setFont('DejaVu', 'bold');
     doc.setFontSize(26);
     doc.setTextColor(255, 255, 255);
     doc.text(t('hero.name'), marginLeft, 15);
 
     // Title (smaller, white)
-    doc.setFont('helvetica', 'normal');
+    doc.setFont('DejaVu', 'normal');
     doc.setFontSize(12);
     doc.text(t('hero.title'), marginLeft, 23);
 
     // Contact info in header (right side)
-    doc.setFont('helvetica', 'normal');
+    doc.setFont('DejaVu', 'normal');
     doc.setFontSize(8);
     doc.setTextColor(255, 255, 255);
     const headerContact = [
@@ -306,27 +321,27 @@ export function generateCV() {
         checkPageBreak(35);
 
         // Company name (bold, larger)
-        doc.setFont('helvetica', 'bold');
+        doc.setFont('DejaVu', 'bold');
         doc.setFontSize(11);
         doc.setTextColor(colors.dark.r, colors.dark.g, colors.dark.b);
         doc.text(exp.company, mainContentStart, yPos);
 
         // Period and team size (right aligned)
-        doc.setFont('helvetica', 'italic');
+        doc.setFont('DejaVu', 'italic');
         doc.setFontSize(8);
         doc.setTextColor(colors.lightGray.r, colors.lightGray.g, colors.lightGray.b);
         doc.text(exp.period, mainContentStart + mainContentWidth, yPos, {align: 'right'});
         yPos += 5;
 
         // Role
-        doc.setFont('helvetica', 'bold');
+        doc.setFont('DejaVu', 'bold');
         doc.setFontSize(9);
         doc.setTextColor(colors.primary.r, colors.primary.g, colors.primary.b);
         doc.text(exp.role, mainContentStart, yPos);
         yPos += 5;
 
         // Description
-        doc.setFont('helvetica', 'normal');
+        doc.setFont('DejaVu', 'normal');
         doc.setFontSize(8.5);
         doc.setTextColor(colors.mediumGray.r, colors.mediumGray.g, colors.mediumGray.b);
         const descLines = doc.splitTextToSize(exp.description, mainContentWidth);
@@ -334,7 +349,7 @@ export function generateCV() {
         yPos += descLines.length * 4.5 + 2;
 
         // Responsibilities
-        doc.setFont('helvetica', 'bold');
+        doc.setFont('DejaVu', 'bold');
         doc.setFontSize(8);
         doc.setTextColor(colors.dark.r, colors.dark.g, colors.dark.b);
         doc.text('Key Responsibilities:', mainContentStart, yPos);
@@ -365,7 +380,7 @@ export function generateCV() {
             doc.roundedRect(techX, techY - 2, techWidth, 5, 1.5, 1.5, 'F');
             
             // Tech text
-            doc.setFont('helvetica', 'normal');
+            doc.setFont('DejaVu', 'normal');
             doc.setTextColor(colors.primary.r, colors.primary.g, colors.primary.b);
             doc.text(tech, techX + 3, techY);
             techX += techWidth + 2;
@@ -393,20 +408,20 @@ export function generateCV() {
         checkPageBreak(20);
 
         // Project title
-        doc.setFont('helvetica', 'bold');
+        doc.setFont('DejaVu', 'bold');
         doc.setFontSize(10);
         doc.setTextColor(colors.dark.r, colors.dark.g, colors.dark.b);
         doc.text(proj.title, mainContentStart, yPos);
 
         // Role (right aligned)
-        doc.setFont('helvetica', 'italic');
+        doc.setFont('DejaVu', 'italic');
         doc.setFontSize(8);
         doc.setTextColor(colors.lightGray.r, colors.lightGray.g, colors.lightGray.b);
         doc.text(proj.role, mainContentStart + mainContentWidth, yPos, {align: 'right'});
         yPos += 5;
 
         // Description
-        doc.setFont('helvetica', 'normal');
+        doc.setFont('DejaVu', 'normal');
         doc.setFontSize(8.5);
         doc.setTextColor(colors.mediumGray.r, colors.mediumGray.g, colors.mediumGray.b);
         const projLines = doc.splitTextToSize(proj.description, mainContentWidth);

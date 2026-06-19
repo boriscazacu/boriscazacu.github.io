@@ -24,6 +24,10 @@ const PdfGeneration = () => {
                     <Download className="mr-2 h-4 w-4" />
                     {t('hero.cta.downloadCV')}
                 </Button>
+
+                <div className='mt-3'>
+                    <a className='text-blue-500 hover:text-blue-400 transition-colors font-semibold' href='/'>Home</a>
+                </div>
             </div>
         </div>
     );

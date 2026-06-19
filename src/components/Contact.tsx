@@ -10,8 +10,8 @@ import {AnimateOnScroll} from '@/components/AnimateOnScroll';
 
 const socialLinks = [
     {icon: Github, href: 'https://github.com/boriscazacu', label: 'GitHub'},
-    {icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn'},
-    {icon: Send, href: 'https://t.me/cbsoft_official', label: 'Telegram'}
+    {icon: Linkedin, href: 'https://linkedin.com/', label: 'LinkedIn'},
+    {icon: Send, href: 'https://t.me/boris_cazacu', label: 'Telegram'}
 ];
 
 export function Contact() {
