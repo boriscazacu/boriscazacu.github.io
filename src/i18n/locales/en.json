@@ -66,6 +66,7 @@
             "frontend": "Frontend",
             "backend": "Backend",
             "tools": "Tools & DevOps",
+            "aiTools": "AI Tools",
             "database": "Databases",
             "other": "Other skills"
         },
@@ -104,6 +105,11 @@
                 "GitLab",
                 "Helm chart"
             ],
+            "aiTools": [
+                "Claude Code",
+                "OpenAI",
+                "n8n"
+            ],
             "database": [
                 "PostgreSQL",
                 "MySql",
@@ -114,7 +120,7 @@
                 "Linux",
                 "Networking",
                 "Bash Scripting",
-                "Phyton Scripting",
+                "Phyton",
                 "C/C++",
                 "Arduino"
             ]

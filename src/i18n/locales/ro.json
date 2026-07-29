@@ -66,6 +66,7 @@
             "frontend": "Frontend",
             "backend": "Backend",
             "tools": "Instrumente & DevOps",
+            "aiTools": "Instrumente AI",
             "database": "Baze de date",
             "other": "Alte skill-uri"
         },
@@ -89,12 +90,10 @@
                 "Thymeleaf",
                 "HTML",
                 "CSS",
-                "SCSS",
                 "JavaScript"
             ],
             "tools": [
                 "IntelliJ IDEA",
-                "Claude Code",
                 "RabbitMQ",
                 "ActiveMQ",
                 "Docker",
@@ -103,6 +102,11 @@
                 "Argo CD",
                 "GitLab",
                 "Helm chart"
+            ],
+            "aiTools": [
+                "Claude Code",
+                "OpenAI",
+                "n8n"
             ],
             "database": [
                 "PostgreSQL",
@@ -114,7 +118,7 @@
                 "Linux",
                 "Networking",
                 "Bash Scripting",
-                "Phyton Scripting",
+                "Phyton",
                 "C/C++",
                 "Arduino"
             ]

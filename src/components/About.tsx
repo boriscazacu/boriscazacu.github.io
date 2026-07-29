@@ -7,6 +7,7 @@ export function About() {
         backend: string[];
         frontend: string[];
         tools: string[];
+        aiTools: string[];
         database: string[];
         other: string[];
     };
@@ -141,23 +142,6 @@ export function About() {
                                 {t('about.skills.title')}
                             </h3>
 
-                            {/* Frontend */}
-                            <div>
-                                <h4 className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2.5 sm:mb-3">
-                                    {t('about.skills.frontend')}
-                                </h4>
-                                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                                    {techStack.frontend.map((skill) => (
-                                        <span
-                                            key={skill}
-                                            className="px-2.5 sm:px-3 py-1 text-xs sm:text-sm bg-primary/10 text-primary rounded-full border border-primary/20"
-                                        >
-                                            {skill}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-
                             {/* Backend */}
                             <div>
                                 <h4 className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2.5 sm:mb-3">
@@ -175,6 +159,23 @@ export function About() {
                                 </div>
                             </div>
 
+                            {/* Frontend */}
+                            <div>
+                                <h4 className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2.5 sm:mb-3">
+                                    {t('about.skills.frontend')}
+                                </h4>
+                                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                                    {techStack.frontend.map((skill) => (
+                                        <span
+                                            key={skill}
+                                            className="px-2.5 sm:px-3 py-1 text-xs sm:text-sm bg-primary/10 text-primary rounded-full border border-primary/20"
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
                             {/* Database */}
                             <div>
                                 <h4 className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2.5 sm:mb-3">
@@ -182,6 +183,23 @@ export function About() {
                                 </h4>
                                 <div className="flex flex-wrap gap-1.5 sm:gap-2">
                                     {techStack.database.map((skill) => (
+                                        <span
+                                            key={skill}
+                                            className="px-2.5 sm:px-3 py-1 text-xs sm:text-sm bg-accent text-accent-foreground rounded-full border border-border"
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Database */}
+                            <div>
+                                <h4 className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2.5 sm:mb-3">
+                                    {t('about.skills.aiTools')}
+                                </h4>
+                                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                                    {techStack.aiTools.map((skill) => (
                                         <span
                                             key={skill}
                                             className="px-2.5 sm:px-3 py-1 text-xs sm:text-sm bg-accent text-accent-foreground rounded-full border border-border"
